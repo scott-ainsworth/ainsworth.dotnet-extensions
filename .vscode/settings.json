@@ -1,0 +1,14 @@
+{
+    "editor.rulers": [ 96 ],
+    "[markdown]": {
+        "editor.wordWrap": "wordWrapColumn",
+        "editor.wordWrapColumn": 80
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/obj": true,
+        "**/bin": true
+    }
+}
