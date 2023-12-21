@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Ainsworth.Extensions.Tests;
 
 [TestClass]
-public class ConversionExtenstionsTests 
+public class ConversionExtensionsTests 
 {
     #region Test Parse()
 
@@ -50,7 +50,7 @@ public class ConversionExtenstionsTests
 
     [DataTestMethod]
     [DynamicData(nameof(LongStrings), DynamicDataSourceType.Property)]
-    public void ParseLong_string__eturns_same_value_as_Int64Parse(string s) {
+    public void ParseLong_string__returns_same_value_as_Int64Parse(string s) {
         var actual = s.ParseLong();
         var expected = Int64.Parse(s);
         Assert.AreEqual(expected, actual);
@@ -58,7 +58,7 @@ public class ConversionExtenstionsTests
 
     [DataTestMethod]
     [DynamicData(nameof(LongStrings), DynamicDataSourceType.Property)]
-    public void ParseLong_string__eturns_same_value_as_Int64Parse(object obj) {
+    public void ParseLong_string__returns_same_value_as_Int64Parse(object obj) {
         var actual = obj.ParseLong();
         var expected = Int64.Parse((string)obj);
         Assert.AreEqual(expected, actual);
