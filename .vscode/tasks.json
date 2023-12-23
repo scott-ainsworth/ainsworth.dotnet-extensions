@@ -1,0 +1,22 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "dotnet: build",
+			"type": "dotnet",
+			"task": "build",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": [],
+			"dependsOn": "gitversion: update project files"
+		},
+		{
+			"label": "gitversion: update project files",
+			"type": "shell",
+			"command": "util/gitversion.sh /updateprojectfiles",
+			"group": "build"
+		}
+	]
+}
