@@ -1,9 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <Product>Ainsworth.System.Chaining</Product>
+    <AssemblyTitle>Ainsworth.System.Chaining</AssemblyTitle>
+    <Description>Extension methods to make built-in static methods appear available as instance methods. For example, Char.IsLetter(c) can be written c.IsLetter(). This package adds no new functionality. It just enables method chaining and makes interfaces to some System classes a bit more fluent.</Description>
+    <Copyright>©️2023 Scott G. Ainsworth</Copyright>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <PackRelease>true</PackRelease>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="../README.md" Pack="true" PackagePath="/" />
+    <None Include="../LICENSE" Pack="true" PackagePath="/" />
+  </ItemGroup>
 
 </Project>
