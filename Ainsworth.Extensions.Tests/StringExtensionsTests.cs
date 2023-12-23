@@ -404,6 +404,88 @@ public class StringExtensionsTests {
     }
 
     #endregion
+    #region String.Join...()
+
+    [DataTestMethod]
+    [DataRow('|', "1", 2, "3")]
+    [DataRow('|', "1", 2)]
+    [DataRow('|', "1")]
+    [DataRow('|', "")]
+    [DataRow('|')]
+    [DataRow('|', "1", null, 2)]
+    [DataRow('|', "1", null)]
+    [DataRow('|', null)]
+    public void Join_objects_produces_same_result_as_builtin_function(
+            char charSeparator, params object?[] values) {
+        var expected = string.Join(charSeparator, values);
+        var strSeparator = charSeparator.ToString();
+        Assert.AreEqual(expected, values.Join(charSeparator));
+        Assert.AreEqual(expected, charSeparator.Join(values));
+        Assert.AreEqual(expected, values.Join(strSeparator));
+        Assert.AreEqual(expected, strSeparator.Join(values));
+    }
+
+    [DataTestMethod]
+    [DataRow('|', "1", "2", "3")]
+    [DataRow('|', "1", "2")]
+    [DataRow('|', "1")]
+    [DataRow('|', "")]
+    [DataRow('|')]
+    [DataRow('|', "1", null, "2")]
+    [DataRow('|', "1", null)]
+    [DataRow('|', null)]
+    public void Join_strings_produces_same_result_as_builtin_function(
+            char charSeparator, params string?[] strings) {
+        var expected = string.Join(charSeparator, strings);
+        var strSeparator = charSeparator.ToString();
+        Assert.AreEqual(expected, strings.Join(charSeparator));
+        Assert.AreEqual(expected, charSeparator.Join(strings));
+        Assert.AreEqual(expected, strings.Join(strSeparator));
+        Assert.AreEqual(expected, strSeparator.Join(strings));
+        Assert.AreEqual(expected, strings.AsEnumerable().Join(charSeparator));
+        Assert.AreEqual(expected, charSeparator.Join(strings.AsEnumerable()));
+        Assert.AreEqual(expected, strings.AsEnumerable().Join(strSeparator));
+        Assert.AreEqual(expected, strSeparator.Join(strings.AsEnumerable()));
+    }
+
+    [DataTestMethod]
+    [DataRow('|', 1, 2, 3)]
+    [DataRow('|', 1, 2)]
+    [DataRow('|', 1)]
+    [DataRow('|')]
+    public void Join_ints_produces_same_result_as_builtin_function(
+            char charSeparator, params int[] ints) {
+        var expected = string.Join(charSeparator, ints);
+        var strSeparator = charSeparator.ToString();
+        Assert.AreEqual(expected, ints.Join(charSeparator));
+        Assert.AreEqual(expected, charSeparator.Join(ints));
+        Assert.AreEqual(expected, ints.Join(strSeparator));
+        Assert.AreEqual(expected, strSeparator.Join(ints));
+        Assert.AreEqual(expected, ints.AsEnumerable().Join(charSeparator));
+        Assert.AreEqual(expected, charSeparator.Join(ints.AsEnumerable()));
+        Assert.AreEqual(expected, ints.AsEnumerable().Join(strSeparator));
+        Assert.AreEqual(expected, strSeparator.Join(ints.AsEnumerable()));
+    }
+
+
+    [DataTestMethod]
+    [DataRow('|', 0, 3, "1", "2", "3")]
+    [DataRow('|', 0, 2, "1", "2", "3")]
+    [DataRow('|', 1, 2, "1", "2", "3")]
+    [DataRow('|', 1, 1, "1", "2", "3")]
+    [DataRow('|', 2, 1, "1", "2", "3")]
+    [DataRow('|', 2, 0, "1", "2", "3")]
+    public void Join_strings_index_count_produces_same_result_as_builtin_function(
+            char charSeparator, int startIndex, int count, params string?[] strings) {
+        var expected = string.Join(charSeparator, strings, startIndex, count);
+        var strSeparator = charSeparator.ToString();
+        Assert.AreEqual(expected, strings.Join(charSeparator, startIndex, count));
+        Assert.AreEqual(expected, charSeparator.Join(strings, startIndex, count));
+        Assert.AreEqual(expected, strings.Join(strSeparator, startIndex, count));
+        Assert.AreEqual(expected, strSeparator.Join(strings, startIndex, count));
+    }
+
+    #endregion
 }
 
 internal static class StringCompareExtensions {

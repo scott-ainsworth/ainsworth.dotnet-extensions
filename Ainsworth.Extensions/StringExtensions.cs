@@ -200,4 +200,111 @@ public static class StringExtensions {
         => string.IsNullOrWhiteSpace(value);
 
     #endregion
+    #region String.Join()
+
+    #region Variant: String.Join(char separator, object?[] values)
+
+    /// <inheritdoc cref="string.Join(char, object?[])"/>
+    public static string Join(this object?[] values, char separator) =>
+        string.Join(separator, values);
+
+    /// <inheritdoc cref="string.Join(char, object?[])"/>
+    public static string Join(this char separator, params object?[] values) =>
+        string.Join(separator, values);
+
+    #endregion
+    #region Variant: String.Join(char separator, string?[] values)
+
+    /// <inheritdoc cref="string.Join(char, string?[])"/>
+    public static string Join(this string?[] values, char separator) =>
+        string.Join(separator, values);
+
+    /// <inheritdoc cref="string.Join(char, string?[])"/>
+    public static string Join(this char separator, params string?[] values) =>
+        string.Join(separator, values);
+
+    #endregion
+    #region Variant: String.Join(char separator, string?[] values, int startIndex, int count)
+
+    /// <inheritdoc cref="string.Join(char, string?[], int, int)"/>
+    public static string Join(
+            this string?[] values, char separator, int startIndex, int count) =>
+        string.Join(separator, values, startIndex, count);
+
+    /// <inheritdoc cref="string.Join(char, string?[], int, int)"/>
+    public static string Join(
+            this char separator, string?[] values, int startIndex, int count) =>
+        string.Join(separator, values, startIndex, count);
+
+    #endregion
+    #region Variant: String.Join(char separator, IEnumerable<string> values)
+
+    /// <inheritdoc cref="string.Join(string?, IEnumerable{string?})"/>
+    public static string Join(this IEnumerable<string?> values, string? separator) =>
+        string.Join(separator, values);
+
+    /// <inheritdoc cref="string.Join(string?, IEnumerable{string?})"/>
+    public static string Join(this string? separator, IEnumerable<string?> values) =>
+        string.Join(separator, values);
+
+    #endregion
+    #region Variant: String.Join(string? separator, object?[] values)
+
+    /// <inheritdoc cref="string.Join(string?, object?[])
+    public static string Join(this object?[] values, string? separator) =>
+        string.Join(separator, values);
+
+    /// <inheritdoc cref="string.Join(char, object?[])"/>
+    public static string Join(this string? separator, params object?[] values) =>
+        string.Join(separator, values);
+
+    #endregion
+    #region Variant: String.Join(string? separator, string?[] values)
+
+    /// <inheritdoc cref="string.Join(string?, string?[])"/>
+    public static string Join(this string?[] values, string? separator) =>
+        string.Join(separator, values);
+
+    /// <inheritdoc cref="string.Join(string?, string?[])"/>
+    public static string Join(this string? separator, params string?[] values) =>
+        string.Join(separator, values);
+
+
+    #endregion
+    #region Variant: String.Join(string? separator, string?[] values, int startIndex, int count)
+
+    /// <inheritdoc cref="string.Join(string?, string?[], int, int)
+    public static string Join(
+            this string?[] values, string? separator, int startIndex, int count) =>
+        string.Join(separator, values, startIndex, count);
+
+    /// <inheritdoc cref="string.Join(string?, string?[], int, int)
+    public static string Join(
+            this string? separator, string?[] values, int startIndex, int count) =>
+        string.Join(separator, values, startIndex, count);
+
+    #endregion
+    #region Variant: String.Join<T>(char separator, IEnumerable<T> values)
+
+    /// <inheritdoc cref="string.Join{T}(char, IEnumerable{T})"/>
+    public static string Join<T>(this IEnumerable<T> values, char separator) =>
+        string.Join(separator, values);
+
+    /// <inheritdoc cref="string.Join(char, IEnumerable{string?})"/>
+    public static string Join<T>(this char separator, IEnumerable<T> values) =>
+        string.Join(separator, values);
+
+    #endregion
+    #region Variant: String.Join<T>(string? separator, IEnumerable<T> values)
+
+    /// <inheritdoc cref="string.Join{T}(string?, IEnumerable{T})"/>
+    public static string Join<T>(this IEnumerable<T> values, string? separator) =>
+        string.Join(separator, values);
+
+    /// <inheritdoc cref="string.Join{T}(string?, IEnumerable{T})"/>
+    public static string Join<T>(this string? separator, IEnumerable<T> values) =>
+        string.Join(separator, values);
+
+    #endregion
+    #endregion
 }
