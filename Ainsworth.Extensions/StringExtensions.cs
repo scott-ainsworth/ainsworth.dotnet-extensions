@@ -1,4 +1,5 @@
 using System.Globalization;
+using System.Text;
 
 namespace Ainsworth.Extensions;
 
@@ -115,6 +116,77 @@ public static class StringExtensions {
 
     /// <inheritdoc cref="string.Concat{T}(IEnumerable{T})"/>
     public static string Concat<T>(this IEnumerable<T> values) => string.Concat(values);
+
+    #endregion
+    #region String.Format()
+
+    /// <inheritdoc cref="string.Format(IFormatProvider?, CompositeFormat, ReadOnlySpan{object?})"/>
+    public static string Format(
+            this CompositeFormat format, IFormatProvider provider,
+            ReadOnlySpan<object?> args) =>
+        string.Format(provider, format, args);
+
+    /// <inheritdoc cref="string.Format(IFormatProvider?, CompositeFormat, object?[])"/>
+    public static string Format(
+            this CompositeFormat format, IFormatProvider provider, object?[] args) =>
+        string.Format(provider, format, args);
+
+    /// <inheritdoc cref="string.Format(IFormatProvider?, string, object?)"/>
+    public static string Format(
+            this string format, IFormatProvider provider, object? arg0) =>
+        string.Format(provider, format, arg0);
+
+    /// <inheritdoc cref="string.Format(IFormatProvider?, string, object?, object?)"/>
+    public static string Format(
+            this string format, IFormatProvider provider, object? arg0, object? arg1) =>
+        string.Format(provider, format, arg0, arg1);
+
+    /// <inheritdoc cref="string.Format(IFormatProvider?, string, object?, object?, object?)"/>
+    public static string Format(
+            this string format, IFormatProvider provider,
+            object? arg0, object? arg1, object? arg2) =>
+        string.Format(provider, format, arg0, arg1, arg2);
+
+    /// <inheritdoc cref="string.Format(IFormatProvider?, string, object?[])"/>
+    public static string Format(this string format, IFormatProvider provider, object?[] args) =>
+        string.Format(provider, format, args);
+
+    // Allow obsolete format methods for completeness
+    #pragma warning disable CA1305 // Specify IFormatProvider
+
+    /// <inheritdoc cref="string.Format(string, object?)"/>
+    public static string Format(this string format, object? arg0) =>
+        string.Format(format, arg0);
+
+    /// <inheritdoc cref="string.Format(string, object?, object?)"/>
+    public static string Format(this string format, object? arg0, object? arg1) =>
+        string.Format(format, arg0, arg1);
+
+    /// <inheritdoc cref="string.Format(string, object?, object?, object?)"/>
+    public static string Format(this string format, object? arg0, object? arg1, object? arg2) =>
+        string.Format(format, arg0, arg1, arg2);
+
+    /// <inheritdoc cref="string.Format(string, object?[])"/>
+    public static string Format(this string format, object?[] args) =>
+        string.Format(format, args);
+
+    #pragma warning restore CA1305 // Specify IFormatProvider
+
+    /// <inheritdoc cref="string.Format{TArg0}(IFormatProvider?, CompositeFormat, TArg0)"/>
+    public static string Format<TArg0>(
+            this CompositeFormat format, IFormatProvider? provider, TArg0 arg0) =>
+        string.Format(provider, format, arg0);
+
+    /// <inheritdoc cref="string.Format{TArg0,TArg1}(IFormatProvider?, CompositeFormat, TArg0, TArg1)"/>
+    public static string Format<TArg0,TArg1>(
+            this CompositeFormat format, IFormatProvider? provider, TArg0 arg0, TArg1 arg1) =>
+        string.Format(provider, format, arg0, arg1);
+
+    /// <inheritdoc cref="string.Format{TArg0,TArg1,TArg2}(IFormatProvider?, CompositeFormat, TArg0, TArg1, TArg2)"/>
+    public static string Format<TArg0,TArg1,TArg2>(
+            this CompositeFormat format, IFormatProvider? provider,
+            TArg0 arg0, TArg1 arg1, TArg2 arg2) =>
+        string.Format(provider, format, arg0, arg1, arg2);
 
     #endregion
     #region String.IsNullOrEmpty() & String.IsNullOrWhiteSpace()
