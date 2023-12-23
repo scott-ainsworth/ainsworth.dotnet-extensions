@@ -1,29 +1,45 @@
 # dotnet-extensions
 
-Various/random .NET extension methods
+Extension methods to make built-in static methods available as instance
+methods.  For example, Char.IsLetter(c) can be written c.IsLetter(). This
+package adds no new functionality. It just enables method chaining and makes
+interfaces to some System classes a bit more fluent.
 
-The motivation behind this class library is to expressiveness of functional code styles in C#. For example:
+The motivation behind this class library is to add expressiveness of chaining to existing .NET System classes.  For example:
 
 ```C#
-    // Instead of function calls, inside of function calls, inside of function calls, ...
-    var i = int.Parse(some_function_that_returns_a_string());
-    var l = (long)some_function_that_returns_an_int();
+    // Instead of function calls, inside of function calls,
+    // inside of function calls, ..., all of which are a bit inside-out,
+    var b = char.IsLetter(third(second(first())));
+    var i = int.Parse(third(second(first())));
+    var l = (long)third(second(first()));
 
-    // We can use a chain-style that can be read more naturally
-    // (at least for those who use languages written left-to-right).
-    var i = some_function_that_returns_a_string().ParseInt();
-    var l = some_function_that_returns_an_int().ToLong();
+    // Use chaining to show execution order and make it a bit easier for
+    // human parsing.
+    var b = first().second().third().IsLetter();
+    var i = first().second().third().ParseInt();
+    var l = first().second().third().ToLong();
 ```
 
-## Example: ConversionExtensions
+## Examples
 
 | Extension Method | Underlying .NET library Implementation |
 |------------------|----------------------------------------|
-| `ParseInt(string)`  | [`Int32.Parse(string)`](https://learn.microsoft.com/en-us/dotnet/api/system.int32.parse#system-int32-parse(system-string)) |
-| `ParseInt(object)`  | [`Int32.Parse(string)`](https://learn.microsoft.com/en-us/dotnet/api/system.int32.parse#system-int32-parse(system-string)) |
-| `ParseLong(string)` | [`Int64.Parse(string)`](https://learn.microsoft.com/en-us/dotnet/api/system.int64.parse#system-int64-parse(system-string)) |
-| `ParseLong(object)` | [`Int64.Parse(string)`](https://learn.microsoft.com/en-us/dotnet/api/system.int64.parse#system-int64-parse(system-string)) |
+| `ParseInt(s)`  | [`Int32.Parse(s)`](https://learn.microsoft.com/en-us/dotnet/api/system.int32.parse#system-int32-parse(system-string)) |
+| `IsDigit(c)` | [`Char.IsDigit(c)`](https://learn.microsoft.com/en-us/dotnet/api/system.char.isdigit#system-char-isdigit(system-char)) |
+| `IsLetter(c, index)` | [`Char.IsLetter(c, index)`](https://learn.microsoft.com/en-us/dotnet/api/system.char.isletter#system-char-isletter(system-string-system-int32)) |
+| `n.ToLong()` | [ `(long)n` ](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/conversions#1032-explicit-numeric-conversions) |
 
-## Notes
+## Usage
 
-1. This is far from a complete library. Basically, I add new features as I need them. Few, if any, of the possibilites in the standard .NET libraries are covered completely. For instance, [`int.Parse()`](https://learn.microsoft.com/en-us/dotnet/api/system.int32.parse) has has eigth overloads. This library currently covers just one.
+```C#
+using Ainsworth.System.Chaining;
+
+var c = 'x';
+var b = c.IsLetter();
+```
+## Limitations
+
+1. There are no known technical problems or conflicts. Please report problems on GitHub.
+
+2. This is far from a complete library. Basically, new features are added as need arises. Pull requests welcome.
