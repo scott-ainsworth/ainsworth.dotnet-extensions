@@ -223,6 +223,24 @@ public class StringExtensionsTests {
     }
 
     #endregion
+    #region String_CompareOrdinal()
+
+    // Note: String.CompareOrdinal() tests uses String.Compare() data
+
+    [DataTestMethod]
+    [DynamicData(nameof(Strings_data), DynamicDataSourceType.Method)]
+    public void String_CompareOrdinal_strings_returns_same_results(string? strA, string? strB) =>
+        Assert.AreEqual(string.CompareOrdinal(strA, strB), strA.CompareOrdinal(strB));
+
+    [DataTestMethod]
+    [DynamicData(nameof(Substrings_data), DynamicDataSourceType.Property)]
+    public void String_CompareOrdinal_substrings_returns_same_results(
+            string? strA, int indexA, string? strB, int indexB, int length) =>
+        Assert.AreEqual(
+            string.CompareOrdinal(strA, indexA, strB, indexB, length),
+            strA.CompareOrdinal(indexA, strB, indexB, length));
+
+    #endregion
     #region String.Concat()
 
     private static IEnumerable<object?[]> String_Concat_string_data => new[] {

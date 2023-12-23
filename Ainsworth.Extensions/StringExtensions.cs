@@ -69,6 +69,17 @@ public static class StringExtensions {
     #pragma warning restore CA1310 // Specify StringComparison for correctness
 
     #endregion
+    #region String.CompareOrdinal()
+    /// <inheritdoc cref="string.CompareOrdinal(string?, string?)"/>
+    public static int CompareOrdinal(this string? strA, string? strB) =>
+        string.CompareOrdinal(strA, strB);
+
+    /// <inheritdoc cref="string.CompareOrdinal(string?, int, string?, int, int)"/>
+    public static int CompareOrdinal(
+            this string? strA, int indexA, string? strB, int indexB, int length) =>
+        string.CompareOrdinal(strA, indexA, strB, indexB, length);
+
+    #endregion
     #region String.Concat()
 
     /// <inheritdoc cref="string.Concat(ReadOnlySpan{char}, ReadOnlySpan{char})"/>
