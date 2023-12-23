@@ -68,6 +68,55 @@ public static class StringExtensions {
     #pragma warning restore CA1310 // Specify StringComparison for correctness
 
     #endregion
+    #region String.Concat()
+
+    /// <inheritdoc cref="string.Concat(ReadOnlySpan{char}, ReadOnlySpan{char})"/>
+    public static string Concat(this ReadOnlySpan<char> str0, ReadOnlySpan<char> str1) =>
+        string.Concat(str0, str1);
+
+    /// <inheritdoc cref="string.Concat(ReadOnlySpan{char}, ReadOnlySpan{char}, ReadOnlySpan{char})"/>
+    public static string Concat(
+            this ReadOnlySpan<char> str0, ReadOnlySpan<char> str1, ReadOnlySpan<char> str2) =>
+        string.Concat(str0, str1, str2);
+
+    /// <inheritdoc cref="string.Concat(ReadOnlySpan{char}, ReadOnlySpan{char}, ReadOnlySpan{char}, ReadOnlySpan{char})"/>
+    public static string Concat(
+            this ReadOnlySpan<char> str0, ReadOnlySpan<char> str1,
+            ReadOnlySpan<char> str2, ReadOnlySpan<char> str3) =>
+        string.Concat(str0, str1, str2, str3);
+
+    /// <inheritdoc cref="string.Concat(object?)"/>
+    public static string Concat(this object? arg0) => string.Concat(arg0);
+
+    /// <inheritdoc cref="string.Concat(object?, object?)"/>
+    public static string Concat(this object? arg0, object? arg1) => string.Concat(arg0, arg1);
+
+    /// <inheritdoc cref="string.Concat(object?, object?, object?)"/>
+    public static string Concat(this object? arg0, object? arg1, object? arg2) =>
+        string.Concat(arg0, arg1, arg2);
+
+    /// <inheritdoc cref="string.Concat(object?[])"/>
+    public static string Concat(this object?[] args) => string.Concat(args);
+
+    /// <inheritdoc cref="string.Concat(string?, string?)"/>
+    public static string Concat(this string? str0, string? str1) =>
+        string.Concat(str0, str1);
+
+    /// <inheritdoc cref="string.Concat(string?, string?, string?)"/>
+    public static string Concat(this string? str0, string? str1, string? str2) =>
+        string.Concat(str0, str1, str2);
+
+    /// <inheritdoc cref="string.Concat(string?, string?, string?, string?)"/>
+    public static string Concat(this string? str0, string? str1, string? str2, string? str3) =>
+        string.Concat(str0, str1, str2, str3);
+
+    /// <inheritdoc cref="string.Concat(string?[])"/>
+    public static string Concat(this string?[] values) => string.Concat(values);
+
+    /// <inheritdoc cref="string.Concat{T}(IEnumerable{T})"/>
+    public static string Concat<T>(this IEnumerable<T> values) => string.Concat(values);
+
+    #endregion
     #region String.IsNullOrEmpty() & String.IsNullOrWhiteSpace()
 
     /// <inheritdoc cref="string.IsNullOrEmpty(string?)"/>

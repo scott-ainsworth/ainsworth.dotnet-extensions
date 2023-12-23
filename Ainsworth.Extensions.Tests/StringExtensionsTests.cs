@@ -216,7 +216,70 @@ public class StringExtensionsTests {
     }
 
     #endregion
+    #region String.Concat()
 
+    private static IEnumerable<object?[]> String_Concat_string_data => new[] {
+        new string?[] {
+          "a",  "b",  "c",  "d",  "e",  "f" },
+        [ "a",  "b",  "c",  "d",  "e"  ],
+        [ "a",  "b",  "c",  "d",  null ],
+        [ "a",  "b",  "c",  null, null ],
+        [ "a",  "b",  null, null, null ],
+        [ "a",  null, null, null, null ],
+        [ null, null, null, null, null ],
+        [ null, null, "c",  null, null ],
+        [ "a",  null, "c",  null       ]
+    };
+
+    [DataTestMethod]
+    [DynamicData(nameof(String_Concat_string_data), DynamicDataSourceType.Property)]
+    public void String_Concat_spans_returns_same_value(params string?[] strs) {
+        Assert.AreEqual(
+            string.Concat(strs[0].AsSpan(), strs[1].AsSpan()),
+            strs[0].AsSpan().Concat(strs[1].AsSpan()));
+        Assert.AreEqual(
+            string.Concat(strs[0].AsSpan(), strs[1].AsSpan(), strs[2]),
+            strs[0].AsSpan().Concat(strs[1].AsSpan(), strs[2].AsSpan()));
+        Assert.AreEqual(
+            string.Concat(strs[0].AsSpan(), strs[1].AsSpan(), strs[2].AsSpan(), strs[3].AsSpan()),
+            strs[0].AsSpan().Concat(strs[1].AsSpan(), strs[2].AsSpan(), strs[3].AsSpan()));
+    }
+
+    [DataTestMethod]
+    [DynamicData(nameof(String_Concat_string_data), DynamicDataSourceType.Property)]
+    public void String_Concat_objects_returns_same_value(object?[] args) {
+        Assert.AreEqual(string.Concat(args[0]), args[0].Concat());
+        Assert.AreEqual(string.Concat(args[0], args[1]), args[0].Concat(args[1]));
+        Assert.AreEqual(
+            string.Concat(args[0], args[1], args[2]),
+            args[0].Concat(args[1], args[2]));
+        Assert.AreEqual(string.Concat(args), args.Concat());
+    }
+
+    [DataTestMethod]
+    [DynamicData(nameof(String_Concat_string_data), DynamicDataSourceType.Property)]
+    public void String_Concat_strings_returns_same_value(params string?[] strs) {
+        Assert.AreEqual(string.Concat(strs[0], strs[1]), strs[0].Concat(strs[1]));
+        Assert.AreEqual(
+            string.Concat(strs[0], strs[1], strs[2]),
+            strs[0].Concat(strs[1], strs[2]));
+        Assert.AreEqual(
+            string.Concat(strs[0], strs[1], strs[2], strs[3]),
+            strs[0].Concat(strs[1], strs[2], strs[3]));
+        Assert.AreEqual(string.Concat(strs), strs.Concat());
+    }
+
+    [DataTestMethod]
+    [DataRow(0, 1, 2, 3, 4)]
+    [DataRow(0, 1, 2, 3)]
+    [DataRow(0, 1, 2)]
+    [DataRow(0, 1)]
+    [DataRow(0)]
+    [DataRow()]
+    public void String_Concat_T_int_returns_same_value(params int[] ints) =>
+        Assert.AreEqual(string.Concat(ints), ints.Concat());
+
+    #endregion
     #region String.IsNullOrEmpty() & String.IsNullOrWhiteSpace()
 
     public static IEnumerable<object?> IsNullOrXxxxxTestStrings => new[] {
