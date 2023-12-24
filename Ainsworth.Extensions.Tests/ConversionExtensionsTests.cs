@@ -58,7 +58,7 @@ public class ConversionExtensionsTests
 
     [DataTestMethod]
     [DynamicData(nameof(LongStrings), DynamicDataSourceType.Property)]
-    public void ParseLong_string__returns_same_value_as_Int64Parse(object obj) {
+    public void ParseLong_object__returns_same_value_as_Int64Parse(object obj) {
         var actual = obj.ParseLong();
         var expected = Int64.Parse((string)obj);
         Assert.AreEqual(expected, actual);
