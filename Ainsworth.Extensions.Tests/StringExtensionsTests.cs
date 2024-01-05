@@ -307,23 +307,20 @@ public class StringExtensionsTests {
     #endregion
     #region String.Format()
 
-    private static IEnumerable<object?[]> Format_test_data => new[] { new object?[]
-        { "{0:s}",                "a"                   },
-        [ "{0:s} {1:d}",          "a", 1                ],
-        [ "{0:s} {1:d} %s",       "a", 1, true          ],
-        [ "{0:s} {1:d} %s %g",    "a", 1, true, -0.1    ],
-        [ "{0:s} {1:d} %s %g %d", "a", 1, true, -0.1, 0 ]
+    private static IEnumerable<object?[]> Format_test_data { get; } = new[] { new object?[]
+        { "{0:s}",                       "a"                   },
+        [ "{0:s} {1:d}",                 "a", 1                ],
+        [ "{0:s} {1:d} {2}",             "a", 1, true          ],
+        [ "{0:s} {1:d} {2} {3:g}",       "a", 1, true, -0.1    ],
+        [ "{0:s} {1:d} {2} {3:g} {4:d}", "a", 1, true, -0.1, 0 ]
     };
 
-    private static IEnumerable<object?[]> Format_test_culture_data { get {
-        foreach (var data in Format_test_data) {
-            foreach (var culture in TestCultures) {
-                var o = new List<object?>() { culture };
-                o.AddRange(data);
-                yield return o.ToArray();
-            }
-        }
-    } }
+    private static IEnumerable<object?[]> Format_test_culture_data =>
+        Format_test_data.SelectMany(data0 => TestCultures.Select(culture => {
+            var o = new List<object?>() { culture };
+            o.AddRange(data0);
+            return o.ToArray();
+        }));
 
     [DataTestMethod]
     [DynamicData(nameof(Format_test_culture_data), DynamicDataSourceType.Property)]
