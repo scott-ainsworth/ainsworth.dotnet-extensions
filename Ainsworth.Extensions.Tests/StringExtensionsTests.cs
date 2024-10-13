@@ -3,14 +3,17 @@ using System.Text;
 
 namespace Ainsworth.Extensions.Tests;
 
+[ExcludeFromCodeCoverage]
 internal record TestStringPair(string? StrA, string? StrB);
 
+[ExcludeFromCodeCoverage]
 internal record TestRange(int IndexA, int IndexB, int Length);
 
 /// <summary>
-///   Unit tests for <see cref="StringExtensions"/> 
+///   Unit tests for <see cref="StringExtensions"/>
 /// </summary>
 [TestClass]
+[ExcludeFromCodeCoverage]
 public class StringExtensionsTests {
 
     #region Test Data
@@ -503,6 +506,7 @@ public class StringExtensionsTests {
     #endregion
 }
 
+[ExcludeFromCodeCoverage]
 internal static class StringCompareExtensions {
 
     public static bool IsLongEnough(this string? s, int index, int length) =>

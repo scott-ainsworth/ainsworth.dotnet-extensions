@@ -3,8 +3,8 @@ using System.Text;
 namespace Ainsworth.Extensions.Tests;
 
 [TestClass]
-public class StreamExtensionsTests
-{
+[ExcludeFromCodeCoverage]
+public class StreamExtensionsTests {
 
 #pragma warning disable CA1861 // Avoid constant arrays as arguments
 

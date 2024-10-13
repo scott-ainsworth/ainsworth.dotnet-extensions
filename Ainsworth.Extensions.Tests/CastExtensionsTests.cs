@@ -1,6 +1,7 @@
 namespace Ainsworth.Extensions.Tests;
 
 [TestClass]
+[ExcludeFromCodeCoverage]
 public class CastExtensionsTests
 {
     #region Test Data
