@@ -37,9 +37,14 @@ public static partial class ParseExtensions {
         this string s, NumberStyles style, IFormatProvider? provider, out int result)
         => int.TryParse(s, style, provider, out result);
 
+
     /// <inheritdoc cref="int.TryParse(string, IFormatProvider, out int)"/>
-    public static bool TryParseInt32(this string s, IFormatProvider? provider, out int result)
-        => int.TryParse(s, provider, out result);
+    public static bool TryParseInt32(this string s, IFormatProvider? provider, out int result) =>
+#if NET7_0_OR_GREATER
+        int.TryParse(s, provider, out result);
+#else
+        int.TryParse(s, NumberStyles.Integer, provider, out result);
+#endif
 
     /// <inheritdoc cref="int.TryParse(string, NumberStyles, IFormatProvider, out int)"/>
     public static bool TryParseInt32(this string s, NumberStyles style, out int result)
@@ -79,8 +84,12 @@ public static partial class ParseExtensions {
         => long.TryParse(s, style, provider, out result);
 
     /// <inheritdoc cref="long.TryParse(string, IFormatProvider, out long)"/>
-    public static bool TryParseInt64(this string s, IFormatProvider? provider, out long result)
-        => long.TryParse(s, provider, out result);
+    public static bool TryParseInt64(this string s, IFormatProvider? provider, out long result) =>
+#if NET7_0_OR_GREATER
+        long.TryParse(s, provider, out result);
+#else
+        long.TryParse(s, NumberStyles.Integer, provider, out result);
+#endif
 
     /// <inheritdoc cref="long.TryParse(string, NumberStyles, IFormatProvider, out long)"/>
     public static bool TryParseInt64(this string s, NumberStyles style, out long result)

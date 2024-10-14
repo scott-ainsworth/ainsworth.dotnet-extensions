@@ -10,7 +10,7 @@
 
   <PropertyGroup>
     <!-- <TargetFrameworks>net8.0;netstandard2.0;netstandard2.1</TargetFrameworks> -->
-    <TargetFrameworks>net8.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.1;netstandard2.0</TargetFrameworks>
     <PackRelease>true</PackRelease>
     <AnalysisMode>All</AnalysisMode>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
