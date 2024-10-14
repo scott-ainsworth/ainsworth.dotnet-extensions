@@ -82,6 +82,8 @@ public static class StringExtensions {
     #endregion
     #region String.Concat()
 
+#if NETCOREAPP3_0_OR_GREATER
+
     /// <inheritdoc cref="string.Concat(ReadOnlySpan{char}, ReadOnlySpan{char})"/>
     public static string Concat(this ReadOnlySpan<char> str0, ReadOnlySpan<char> str1) =>
         string.Concat(str0, str1);
@@ -96,6 +98,8 @@ public static class StringExtensions {
             this ReadOnlySpan<char> str0, ReadOnlySpan<char> str1,
             ReadOnlySpan<char> str2, ReadOnlySpan<char> str3) =>
         string.Concat(str0, str1, str2, str3);
+
+#endif
 
     /// <inheritdoc cref="string.Concat(object?)"/>
     public static string Concat(this object? arg0) => string.Concat(arg0);
@@ -131,6 +135,8 @@ public static class StringExtensions {
     #endregion
     #region String.Format()
 
+#if NET8_0_OR_GREATER
+
     /// <inheritdoc cref="string.Format(IFormatProvider?, CompositeFormat, ReadOnlySpan{object?})"/>
     public static string Format(
             this CompositeFormat format, IFormatProvider provider,
@@ -141,6 +147,8 @@ public static class StringExtensions {
     public static string Format(
             this CompositeFormat format, IFormatProvider provider, object?[] args) =>
         string.Format(provider, format, args);
+
+#endif
 
     /// <inheritdoc cref="string.Format(IFormatProvider?, string, object?)"/>
     public static string Format(
@@ -183,6 +191,8 @@ public static class StringExtensions {
 
     #pragma warning restore CA1305 // Specify IFormatProvider
 
+#if NET8_0_OR_GREATER
+
     /// <inheritdoc cref="string.Format{TArg0}(IFormatProvider?, CompositeFormat, TArg0)"/>
     public static string Format<TArg0>(
             this CompositeFormat format, IFormatProvider? provider, TArg0 arg0) =>
@@ -198,6 +208,8 @@ public static class StringExtensions {
             this CompositeFormat format, IFormatProvider? provider,
             TArg0 arg0, TArg1 arg1, TArg2 arg2) =>
         string.Format(provider, format, arg0, arg1, arg2);
+
+#endif
 
     #endregion
     #region String.IsNullOrEmpty() & String.IsNullOrWhiteSpace()
@@ -217,22 +229,38 @@ public static class StringExtensions {
 
     /// <inheritdoc cref="string.Join(char, object?[])"/>
     public static string Join(this object?[] values, char separator) =>
+#if (NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_0_OR_GREATER)
         string.Join(separator, values);
+#else
+        string.Join(separator.ToString(), values);
+#endif
 
     /// <inheritdoc cref="string.Join(char, object?[])"/>
     public static string Join(this char separator, params object?[] values) =>
+#if (NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_0_OR_GREATER)
         string.Join(separator, values);
+#else
+        string.Join(separator.ToString(), values);
+#endif
 
     #endregion
     #region Variant: String.Join(char separator, string?[] values)
 
     /// <inheritdoc cref="string.Join(char, string?[])"/>
     public static string Join(this string?[] values, char separator) =>
+#if (NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_0_OR_GREATER)
         string.Join(separator, values);
+#else
+        string.Join(separator.ToString(), values);
+#endif
 
     /// <inheritdoc cref="string.Join(char, string?[])"/>
     public static string Join(this char separator, params string?[] values) =>
+#if (NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_0_OR_GREATER)
         string.Join(separator, values);
+#else
+        string.Join(separator.ToString(), values);
+#endif
 
     #endregion
     #region Variant: String.Join(char separator, string?[] values, int startIndex, int count)
@@ -240,12 +268,20 @@ public static class StringExtensions {
     /// <inheritdoc cref="string.Join(char, string?[], int, int)"/>
     public static string Join(
             this string?[] values, char separator, int startIndex, int count) =>
+#if (NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_0_OR_GREATER)
         string.Join(separator, values, startIndex, count);
+#else
+        string.Join(separator.ToString(), values, startIndex, count);
+#endif
 
     /// <inheritdoc cref="string.Join(char, string?[], int, int)"/>
     public static string Join(
             this char separator, string?[] values, int startIndex, int count) =>
+#if (NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_0_OR_GREATER)
         string.Join(separator, values, startIndex, count);
+#else
+        string.Join(separator.ToString(), values, startIndex, count);
+#endif
 
     #endregion
     #region Variant: String.Join(char separator, IEnumerable<string> values)
@@ -299,11 +335,19 @@ public static class StringExtensions {
 
     /// <inheritdoc cref="string.Join{T}(char, IEnumerable{T})"/>
     public static string Join<T>(this IEnumerable<T> values, char separator) =>
+#if (NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_0_OR_GREATER)
         string.Join(separator, values);
+#else
+        string.Join(separator.ToString(), values);
+#endif
 
     /// <inheritdoc cref="string.Join(char, IEnumerable{string?})"/>
     public static string Join<T>(this char separator, IEnumerable<T> values) =>
+#if (NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_0_OR_GREATER)
         string.Join(separator, values);
+#else
+        string.Join(separator.ToString(), values);
+#endif
 
     #endregion
     #region Variant: String.Join<T>(string? separator, IEnumerable<T> values)

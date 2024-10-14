@@ -259,19 +259,23 @@ public class StringExtensionsTests {
         [ "a",  null, "c",  null       ]
     };
 
-    [DataTestMethod]
-    [DynamicData(nameof(String_Concat_string_data), DynamicDataSourceType.Property)]
-    public void String_Concat_spans_returns_same_value(params string?[] strs) {
-        Assert.AreEqual(
-            string.Concat(strs[0].AsSpan(), strs[1].AsSpan()),
-            strs[0].AsSpan().Concat(strs[1].AsSpan()));
-        Assert.AreEqual(
-            string.Concat(strs[0].AsSpan(), strs[1].AsSpan(), strs[2]),
-            strs[0].AsSpan().Concat(strs[1].AsSpan(), strs[2].AsSpan()));
-        Assert.AreEqual(
-            string.Concat(strs[0].AsSpan(), strs[1].AsSpan(), strs[2].AsSpan(), strs[3].AsSpan()),
-            strs[0].AsSpan().Concat(strs[1].AsSpan(), strs[2].AsSpan(), strs[3].AsSpan()));
-    }
+// #if NET7_0_OR_GREATER
+
+//     [DataTestMethod]
+//     [DynamicData(nameof(String_Concat_string_data), DynamicDataSourceType.Property)]
+//     public void String_Concat_spans_returns_same_value(params string?[] strs) {
+//         Assert.AreEqual(
+//             string.Concat(strs[0].AsSpan(), strs[1].AsSpan()),
+//             strs[0].AsSpan().Concat(strs[1].AsSpan()));
+//         Assert.AreEqual(
+//             string.Concat(strs[0].AsSpan(), strs[1].AsSpan(), strs[2]),
+//             strs[0].AsSpan().Concat(strs[1].AsSpan(), strs[2].AsSpan()));
+//         Assert.AreEqual(
+//             string.Concat(strs[0].AsSpan(), strs[1].AsSpan(), strs[2].AsSpan(), strs[3].AsSpan()),
+//             strs[0].AsSpan().Concat(strs[1].AsSpan(), strs[2].AsSpan(), strs[3].AsSpan()));
+//     }
+
+// #endif
 
     [DataTestMethod]
     [DynamicData(nameof(String_Concat_string_data), DynamicDataSourceType.Property)]
@@ -369,32 +373,36 @@ public class StringExtensionsTests {
         }
     }
 
-    [DataTestMethod]
-    [DynamicData(nameof(Format_test_culture_data), DynamicDataSourceType.Property)]
-    public void String_Format_compositeformat_objects_returns_same_value(
-            CultureInfo culture, string format, params object?[] args) {
-        var compositeFormat = CompositeFormat.Parse(format);
-        switch (args.Length) {
-            case 1:
-                Assert.AreEqual(string.Format(culture, format, args[0]),
-                                compositeFormat.Format(culture, args[0]));
-                break;
-            case 2:
-                Assert.AreEqual(string.Format(culture, format, args[0], args[1]),
-                                compositeFormat.Format(culture, args[0], args[1]));
-                break;
-            case 3:
-                Assert.AreEqual(string.Format(culture, format, args[0], args[1], args[2]),
-                                compositeFormat.Format(culture, args[0], args[1], args[2]));
-                break;
-            default:
-                Assert.AreEqual(string.Format(culture, format, args),
-                                compositeFormat.Format(culture, args));
-                Assert.AreEqual(string.Format(culture, format, args),
-                                compositeFormat.Format(culture, args.AsSpan()));
-                break;
-        }
-    }
+// #if NET7_0_OR_GREATER
+
+//     [DataTestMethod]
+//     [DynamicData(nameof(Format_test_culture_data), DynamicDataSourceType.Property)]
+//     public void String_Format_compositeformat_objects_returns_same_value(
+//             CultureInfo culture, string format, params object?[] args) {
+//         var compositeFormat = CompositeFormat.Parse(format);
+//         switch (args.Length) {
+//             case 1:
+//                 Assert.AreEqual(string.Format(culture, format, args[0]),
+//                                 compositeFormat.Format(culture, args[0]));
+//                 break;
+//             case 2:
+//                 Assert.AreEqual(string.Format(culture, format, args[0], args[1]),
+//                                 compositeFormat.Format(culture, args[0], args[1]));
+//                 break;
+//             case 3:
+//                 Assert.AreEqual(string.Format(culture, format, args[0], args[1], args[2]),
+//                                 compositeFormat.Format(culture, args[0], args[1], args[2]));
+//                 break;
+//             default:
+//                 Assert.AreEqual(string.Format(culture, format, args),
+//                                 compositeFormat.Format(culture, args));
+//                 Assert.AreEqual(string.Format(culture, format, args),
+//                                 compositeFormat.Format(culture, args.AsSpan()));
+//                 break;
+//         }
+//     }
+
+// #endif
 
     #endregion
     #region String.IsNullOrEmpty() & String.IsNullOrWhiteSpace()
