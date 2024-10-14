@@ -1,4 +1,12 @@
-mode: ContinuousDelivery
+workflow: GitFlow/v1
+assembly-versioning-scheme: MajorMinorPatchTag
+assembly-file-versioning-scheme: MajorMinorPatchTag
+#assembly-file-versioning-format: '{Major}.{Minor}.{Patch}.{PreReleaseNumber}'
+#assembly-versioning-format: '{Major}.{Minor}.{Patch}.{PreReleaseNumber}'
+assembly-informational-format: '{Major}.{Minor}.{Patch}{PreReleaseTagWithDash}+{Sha}'
+major-version-bump-message: "^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test)(\\([\\w\\s-,/\\\\]*\\))?(!:|:.*\\n\\n((.+\\n)+\\n)?BREAKING[ -]CHANGE:\\s.+)|\\+semver:\\s?(breaking|major)"
+minor-version-bump-message: "^(feat)(\\([\\w\\s-,/\\\\]*\\))?:|\\+semver:\\s?(feature|minor)"
+patch-version-bump-message: "^(fix|perf)(\\([\\w\\s-,/\\\\]*\\))?:|\\+semver:\\s?(fix|patch)"
 branches: {}
 ignore:
   sha: []
