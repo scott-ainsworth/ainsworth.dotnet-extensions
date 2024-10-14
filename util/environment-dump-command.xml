@@ -1,0 +1,55 @@
+﻿  <Target Name="GitVersion-update" BeforeTargets="PrebuildEvent">
+    <Exec Command="set" />
+    <Exec Command="
+        echo &quot;ApplicationIcon              = '$(ApplicationIcon)'&quot;
+        echo &quot;AssemblyName                 = '$(AssemblyName)'&quot;
+        echo &quot;BuildInParallel              = $(BuildInParallel)&quot;
+        echo &quot;Configuration                = '$(Configuration)'&quot;
+        echo &quot;DebugType                    = '$(DebugType)'&quot;
+        echo &quot;Deterministic                = $(Deterministic)&quot;
+        echo &quot;DevEnvDir                    = '$(DevEnvDir)'&quot;
+        echo &quot;DirectoryBuildPropsPath      = '$(DirectoryBuildPropsPath)'&quot;
+        echo &quot;DirectoryBuildTargetsPath    = '$(DirectoryBuildTargetsPath)'&quot;
+        echo &quot;DocumentationFile            = '$(DocumentationFile)'&quot;
+        echo &quot;ImportDirectoryBuildProps    = $(ImportDirectoryBuildProps)&quot;
+        echo &quot;ImportDirectoryBuildTargets  = $(ImportDirectoryBuildTargets)&quot;
+        echo &quot;MSBuildTreatWarningsAsErrors = '$(MSBuildTreatWarningsAsErrors)'&quot;
+        echo &quot;MSBuildWarningsAsErrors      = '$(MSBuildWarningsAsErrors)'&quot;
+        echo &quot;MSBuildWarningsAsMessages    = '$(MSBuildWarningsAsMessages)'&quot;
+        echo &quot;NoLogo                       = $(NoLogo)&quot;
+        echo &quot;NoStdLib                     = $(NoStdLib)&quot;
+        echo &quot;NoWarn                       = '$(NoWarn)'&quot;
+        echo &quot;Optimize                     = $(Optimize)&quot;
+        echo &quot;OptionExplicit               = $(OptionExplicit)&quot;
+        echo &quot;OptionInfer                  = $(OptionInfer)&quot;
+        echo &quot;OptionStrict                 = $(OptionStrict)&quot;
+        echo &quot;OutDir                       = '$(OutDir)'&quot;
+        echo &quot;OutputPath                   = '$(OutputPath)'&quot;
+        echo &quot;OutputType                   = '$(OutputType)'&quot;
+        echo &quot;Platform                     = '$(Platform)'&quot;
+        echo &quot;ProcessorArchitecture        = '$(ProcessorArchitecture)'&quot;
+        echo &quot;ProduceReferenceOnlyAssembly = $(ProduceReferenceOnlyAssembly)&quot;
+        echo &quot;ProductReferenceAssembly     = $(ProductReferenceAssembly)&quot;
+        echo &quot;ProjectDir                   = '$(ProjectDir)'&quot;
+        echo &quot;ProjectPath                  = '$(ProjectPath)'&quot;
+        echo &quot;ProjectName                  = '$(ProjectName)'&quot;
+        echo &quot;ProjectFileName              = '$(ProjectFileName)'&quot;
+        echo &quot;ProjectExt                   = '$(ProjectExt)'&quot;
+        echo &quot;RootNameSpace                = '$(RootNameSpace)'&quot;
+        echo &quot;SolutionDir                  = '$(SolutionDir)'&quot;
+        echo &quot;SolutionPath                 = '$(SolutionPath)'&quot;
+        echo &quot;SolutionName                 = '$(SolutionName)'&quot;
+        echo &quot;SolutionFileName             = '$(SolutionFileName)'&quot;
+        echo &quot;SolutionExt                  = '$(SolutionExt)'&quot;
+        echo &quot;TargetFramework              = '$(TargetFramework)'&quot;
+        echo &quot;TargetFrameworkVersion       = '$(TargetFrameworkVersion)'&quot;
+        echo &quot;TreatWarningsAsErrors        = $(TreatWarningsAsErrors)&quot;
+        echo &quot;Utf8Output                   = $(Utf8Output)&quot;
+        echo &quot;WarningsAsErrors             = '$(WarningsAsErrors)'&quot;
+        echo &quot;WarningLevel                 = '$(WarningLevel)'&quot;
+        echo &quot;WarningsNotAsErrors          = '$(WarningsNotAsErrors)'&quot;
+        echo &quot;pwd                          = '$$(pwd)'&quot;
+      " />
+  </Target>
+
+</Project>
