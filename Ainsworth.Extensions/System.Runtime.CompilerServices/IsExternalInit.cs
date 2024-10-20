@@ -2,6 +2,8 @@
 
 #if !NET5_0_OR_GREATER
 
+// ----- Microsoft source starts below ---------------------------------------------------------
+
 #define SYSTEM_PRIVATE_CORELIB
 
 // Licensed to the .NET Foundation under one or more agreements.
@@ -25,5 +27,7 @@ namespace System.Runtime.CompilerServices
     {
     }
 }
+
+// ----- end of Microsoft source ---------------------------------------------------------------
 
 #endif

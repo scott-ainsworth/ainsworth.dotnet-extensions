@@ -10,5 +10,8 @@
         "**/Thumbs.db": true,
         "**/obj": true,
         "**/bin": true
-    }
+    },
+    "dotnet.unitTests.runSettingsPath": ".runsettings",
+    "testing.followRunningTest": false,
+    "testing.showAllMessages": true
 }
