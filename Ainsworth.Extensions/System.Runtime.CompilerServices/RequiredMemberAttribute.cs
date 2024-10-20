@@ -2,6 +2,8 @@
 
 #if !NET7_0_OR_GREATER
 
+#define SYSTEM_PRIVATE_CORELIB
+
 // ----- Microsoft source starts below ---------------------------------------------------------
 
 // Licensed to the .NET Foundation under one or more agreements.
