@@ -19,11 +19,10 @@ public class StringExtensionsTests {
     #region Test Data
 
     private static readonly CultureInfo[] TestCultures = [
-        CultureInfo.CurrentCulture,
         CultureInfo.InvariantCulture,
-        new CultureInfo("en-US"),
-        new CultureInfo("fr-FR"),
-        new CultureInfo("de-DE")
+        CultureInfo.GetCultureInfo("en-US"),
+        CultureInfo.GetCultureInfo("fr-FR"),
+        CultureInfo.GetCultureInfo("de-DE")
     ];
 
     #endregion
@@ -49,7 +48,7 @@ public class StringExtensionsTests {
         StringComparison.InvariantCulture,
         StringComparison.InvariantCultureIgnoreCase,
         StringComparison.Ordinal,
-        StringComparison.Ordinal,
+        StringComparison.OrdinalIgnoreCase,
     ];
 
     private static readonly TestRange[] TestRanges = [
@@ -77,14 +76,15 @@ public class StringExtensionsTests {
 
     #endregion
 
-    [DataTestMethod]
-    [DynamicData(nameof(Substrings_culture_options_data), DynamicDataSourceType.Property)]
+    [TestMethod]
+    [DynamicData(nameof(Substrings_culture_options_data))]
     public void String_Compare_substrings_culture_options_returns_same_results(
             string? strA, int indexA, string? strB, int indexB, int length,
             CultureInfo culture, CompareOptions options) =>
         Assert.AreEqual(
-            string.Compare(strA, indexA, strB, indexB, length, CultureInfo.CurrentCulture, options),
+            string.Compare(strA, indexA, strB, indexB, length, culture, options),
             strA.Compare(indexA, strB, indexB, length, culture, options));
+
     private static IEnumerable<object?[]> Substrings_culture_options_data { get {
             foreach (var (pair, range) in RangeTestStrings)
                 foreach (var culture in TestCultures)
@@ -94,8 +94,8 @@ public class StringExtensionsTests {
                         pair.StrB, range.IndexB, range.Length, culture, options };
         } }
 
-    [DataTestMethod]
-    [DynamicData(nameof(Substrings_ignorecase_culture_data), DynamicDataSourceType.Property)]
+    [TestMethod]
+    [DynamicData(nameof(Substrings_ignorecase_culture_data))]
     public void String_Compare_substrings_ignorecase_culture_returns_same_results(
             string? strA, int indexA, string? strB, int indexB, int length,
             bool ignoreCase, CultureInfo culture) =>
@@ -114,8 +114,8 @@ public class StringExtensionsTests {
                 }
         } }
 
-    [DataTestMethod]
-    [DynamicData(nameof(Substrings_comparisontype_data), DynamicDataSourceType.Property)]
+    [TestMethod]
+    [DynamicData(nameof(Substrings_comparisontype_data))]
     public void String_Compare_substrings_comparisontype_returns_same_results(
             string? strA, int indexA, string? strB, int indexB, int length,
             StringComparison comparisonType) =>
@@ -130,8 +130,8 @@ public class StringExtensionsTests {
                     pair.StrB, range.IndexB, range.Length, comparisonType };
         } }
 
-    [DataTestMethod]
-    [DynamicData(nameof(Substrings_ignorecase_data), DynamicDataSourceType.Property)]
+    [TestMethod]
+    [DynamicData(nameof(Substrings_ignorecase_data))]
     public void String_Compare_substrings_ignorecase_returns_same_results(
             string? strA, int indexA, string? strB, int indexB, int length, bool ignoreCase) =>
         Assert.AreEqual(
@@ -146,8 +146,8 @@ public class StringExtensionsTests {
             }
         } }
 
-    [DataTestMethod]
-    [DynamicData(nameof(Substrings_data), DynamicDataSourceType.Property)]
+    [TestMethod]
+    [DynamicData(nameof(Substrings_data))]
     public void String_Compare_substrings_returns_same_results(
             string? strA, int indexA, string? strB, int indexB, int length) =>
         Assert.AreEqual(
@@ -159,8 +159,8 @@ public class StringExtensionsTests {
                 pair.StrA, range.IndexA, pair.StrB, range.IndexB, range.Length };
         } }
 
-    [DataTestMethod]
-    [DynamicData(nameof(Strings_ignorecase_culture_data), DynamicDataSourceType.Property)]
+    [TestMethod]
+    [DynamicData(nameof(Strings_ignorecase_culture_data))]
     public void String_Compare_strings_ignorecase_culture_returns_same_results(
             string? strA, string? strB, bool ignoreCase, CultureInfo culture) =>
         Assert.AreEqual(
@@ -174,8 +174,8 @@ public class StringExtensionsTests {
                 }
         } }
 
-    [DataTestMethod]
-    [DynamicData(nameof(Strings_data), DynamicDataSourceType.Method)]
+    [TestMethod]
+    [DynamicData(nameof(Strings_data))]
     public void String_Compare_strings_returns_same_results(string? strA, string? strB) =>
         Assert.AreEqual(string.Compare(strA, strB), strA.Compare(strB));
     private static IEnumerable<object?[]> Strings_data() {
@@ -183,8 +183,8 @@ public class StringExtensionsTests {
             yield return new object?[] { pair.StrA, pair.StrB };
     }
 
-    [DataTestMethod]
-    [DynamicData(nameof(Strings_comparisontype_data), DynamicDataSourceType.Method)]
+    [TestMethod]
+    [DynamicData(nameof(Strings_comparisontype_data))]
     public void String_Compare_strings_comparisontype_returns_same_results(
             string? strA, string? strB, StringComparison comparisonType) =>
         Assert.AreEqual(
@@ -196,8 +196,8 @@ public class StringExtensionsTests {
                 yield return new object?[] { pair.StrA, pair.StrB, comparisonType };
     }
 
-    [DataTestMethod]
-    [DynamicData(nameof(Strings_ignorecase_data), DynamicDataSourceType.Method)]
+    [TestMethod]
+    [DynamicData(nameof(Strings_ignorecase_data))]
     public void String_Compare_strings_ignorecase_returns_same_results(
             string? strA, string? strB, bool ignoreCase) =>
         Assert.AreEqual(
@@ -210,8 +210,8 @@ public class StringExtensionsTests {
         }
     }
 
-    [DataTestMethod]
-    [DynamicData(nameof(Strings_culture_compareoptions_data), DynamicDataSourceType.Method)]
+    [TestMethod]
+    [DynamicData(nameof(Strings_culture_compareoptions_data))]
     public void String_Compare_strings_culture_options_returns_same_results(
             string? strA, string? strB, CultureInfo culture, CompareOptions options) =>
         Assert.AreEqual(
@@ -230,13 +230,13 @@ public class StringExtensionsTests {
 
     // Note: String.CompareOrdinal() tests uses String.Compare() data
 
-    [DataTestMethod]
-    [DynamicData(nameof(Strings_data), DynamicDataSourceType.Method)]
+    [TestMethod]
+    [DynamicData(nameof(Strings_data))]
     public void String_CompareOrdinal_strings_returns_same_results(string? strA, string? strB) =>
         Assert.AreEqual(string.CompareOrdinal(strA, strB), strA.CompareOrdinal(strB));
 
-    [DataTestMethod]
-    [DynamicData(nameof(Substrings_data), DynamicDataSourceType.Property)]
+    [TestMethod]
+    [DynamicData(nameof(Substrings_data))]
     public void String_CompareOrdinal_substrings_returns_same_results(
             string? strA, int indexA, string? strB, int indexB, int length) =>
         Assert.AreEqual(
@@ -261,8 +261,8 @@ public class StringExtensionsTests {
 
 // #if NET7_0_OR_GREATER
 
-//     [DataTestMethod]
-//     [DynamicData(nameof(String_Concat_string_data), DynamicDataSourceType.Property)]
+//     [TestMethod]
+//     [DynamicData(nameof(String_Concat_string_data))]
 //     public void String_Concat_spans_returns_same_value(params string?[] strs) {
 //         Assert.AreEqual(
 //             string.Concat(strs[0].AsSpan(), strs[1].AsSpan()),
@@ -277,8 +277,8 @@ public class StringExtensionsTests {
 
 // #endif
 
-    [DataTestMethod]
-    [DynamicData(nameof(String_Concat_string_data), DynamicDataSourceType.Property)]
+    [TestMethod]
+    [DynamicData(nameof(String_Concat_string_data))]
     public void String_Concat_objects_returns_same_value(object?[] args) {
         Assert.AreEqual(string.Concat(args[0]), args[0].Concat());
         Assert.AreEqual(string.Concat(args[0], args[1]), args[0].Concat(args[1]));
@@ -288,8 +288,8 @@ public class StringExtensionsTests {
         Assert.AreEqual(string.Concat(args), args.Concat());
     }
 
-    [DataTestMethod]
-    [DynamicData(nameof(String_Concat_string_data), DynamicDataSourceType.Property)]
+    [TestMethod]
+    [DynamicData(nameof(String_Concat_string_data))]
     public void String_Concat_strings_returns_same_value(params string?[] strs) {
         Assert.AreEqual(string.Concat(strs[0], strs[1]), strs[0].Concat(strs[1]));
         Assert.AreEqual(
@@ -301,7 +301,7 @@ public class StringExtensionsTests {
         Assert.AreEqual(string.Concat(strs), strs.Concat());
     }
 
-    [DataTestMethod]
+    [TestMethod]
     [DataRow(0, 1, 2, 3, 4)]
     [DataRow(0, 1, 2, 3)]
     [DataRow(0, 1, 2)]
@@ -329,8 +329,8 @@ public class StringExtensionsTests {
             return o.ToArray();
         }));
 
-    [DataTestMethod]
-    [DynamicData(nameof(Format_test_culture_data), DynamicDataSourceType.Property)]
+    [TestMethod]
+    [DynamicData(nameof(Format_test_culture_data))]
     public void String_Format_culture_objects_returns_same_value(
             CultureInfo culture, string format, params object?[] args) {
         switch (args.Length) {
@@ -352,8 +352,8 @@ public class StringExtensionsTests {
         }
     }
 
-    [DataTestMethod]
-    [DynamicData(nameof(Format_test_data), DynamicDataSourceType.Property)]
+    [TestMethod]
+    [DynamicData(nameof(Format_test_data))]
     public void String_Format_objects_returns_same_value(string format, params object?[] args) {
         switch (args.Length) {
             case 1:
@@ -375,8 +375,8 @@ public class StringExtensionsTests {
 
 // #if NET7_0_OR_GREATER
 
-//     [DataTestMethod]
-//     [DynamicData(nameof(Format_test_culture_data), DynamicDataSourceType.Property)]
+//     [TestMethod]
+//     [DynamicData(nameof(Format_test_culture_data))]
 //     public void String_Format_compositeformat_objects_returns_same_value(
 //             CultureInfo culture, string format, params object?[] args) {
 //         var compositeFormat = CompositeFormat.Parse(format);
@@ -413,16 +413,16 @@ public class StringExtensionsTests {
         ["X "], ["XX "], [" X "], [" XX "], [" X X "],
     };
 
-    [DataTestMethod]
-    [DynamicData(nameof(IsNullOrXxxxxTestStrings), DynamicDataSourceType.Property)]
+    [TestMethod]
+    [DynamicData(nameof(IsNullOrXxxxxTestStrings))]
     public void IsNullOrEmpty_string__returns_same_value_as_dotNet_builtin(string value) {
         var expected = string.IsNullOrEmpty(value);
         var actual = value.IsNullOrEmpty();
         Assert.AreEqual(expected, actual);
     }
 
-    [DataTestMethod]
-    [DynamicData(nameof(IsNullOrXxxxxTestStrings), DynamicDataSourceType.Property)]
+    [TestMethod]
+    [DynamicData(nameof(IsNullOrXxxxxTestStrings))]
     public void IsNullOrWhiteSpace_string__returns_same_value_as_dotNet_builtin(string value) {
         var expected = string.IsNullOrWhiteSpace(value);
         var actual = value.IsNullOrWhiteSpace();
@@ -432,7 +432,7 @@ public class StringExtensionsTests {
     #endregion
     #region String.Join...()
 
-    [DataTestMethod]
+    [TestMethod]
     [DataRow('|', "1", 2, "3")]
     [DataRow('|', "1", 2)]
     [DataRow('|', "1")]
@@ -451,7 +451,7 @@ public class StringExtensionsTests {
         Assert.AreEqual(expected, strSeparator.Join(values));
     }
 
-    [DataTestMethod]
+    [TestMethod]
     [DataRow('|', "1", "2", "3")]
     [DataRow('|', "1", "2")]
     [DataRow('|', "1")]
@@ -474,7 +474,7 @@ public class StringExtensionsTests {
         Assert.AreEqual(expected, strSeparator.Join(strings.AsEnumerable()));
     }
 
-    [DataTestMethod]
+    [TestMethod]
     [DataRow('|', 1, 2, 3)]
     [DataRow('|', 1, 2)]
     [DataRow('|', 1)]
@@ -494,7 +494,7 @@ public class StringExtensionsTests {
     }
 
 
-    [DataTestMethod]
+    [TestMethod]
     [DataRow('|', 0, 3, "1", "2", "3")]
     [DataRow('|', 0, 2, "1", "2", "3")]
     [DataRow('|', 1, 2, "1", "2", "3")]
