@@ -9,10 +9,15 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <!-- <TargetFrameworks>net8.0;netstandard2.0;netstandard2.1</TargetFrameworks> -->
-    <TargetFrameworks>netstandard2.1;netstandard2.0</TargetFrameworks>
-    <PackRelease>true</PackRelease>
+    <TargetFrameworks>netstandard2.0;net8.0;net10.0</TargetFrameworks>
+    <LanguageVersion>latest</LanguageVersion>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
+    <RunAnalyzersDuringLiveAnalysis>true</RunAnalyzersDuringLiveAnalysis>
     <AnalysisMode>All</AnalysisMode>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <PackRelease>true</PackRelease>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
   </PropertyGroup>
 
@@ -21,14 +26,10 @@
     <None Include="../LICENSE" Pack="true" PackagePath="/" />
   </ItemGroup>
 
-  <Target Name="GitVersionUpdate" BeforeTargets="DispatchToInnerBuilds">
-    <Exec Command="echo IsCrossTargetingBuild = '$(IsCrossTargetingBuild)'" EchoOff="true" />
-    <Exec Command="../util/gitversion.sh update $(TargetFramework) $(Configuration)" />
-  </Target>
-
-  <Target Name="GitVersionClean" AfterTargets="Clean" Condition="'$(IsCrossTargetingBuild)' == 'true'">
-    <Exec Command="echo IsCrossTargetingBuild = '$(IsCrossTargetingBuild)'" EchoOff="true" />
-    <Exec Command="../util/gitversion.sh clean" />
-  </Target>
+  <ItemGroup>
+    <PackageReference Include="GitVersion.MsBuild">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
 
 </Project>

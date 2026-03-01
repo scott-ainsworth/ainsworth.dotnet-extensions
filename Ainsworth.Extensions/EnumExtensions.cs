@@ -8,24 +8,31 @@ public static class EnumExtensions {
         Enum.Format(typeof(TEnum), value, format);
 
 
+#if !NETSTANDARD2_1_OR_GREATER
     /// <inheritdoc cref="Enum.GetName{TEnum}(TEnum)"/>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage(
+        "Usage", "CA2263:Prefer generic overload when type is known",
+        Justification = "Generic overload not available prior to .NET Standard 2.1")]
     public static string? GetName<TEnum>(this TEnum value) where TEnum : struct, Enum =>
         Enum.GetName(typeof(TEnum), value);
+#endif
 
+#if !NETSTANDARD2_1_OR_GREATER
     /// <inheritdoc cref="Enum.Parse{TEnum}(string)"/>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage(
+        "Usage", "CA2263:Prefer generic overload when type is known",
+        Justification = "Generic overload not available prior to .NET Standard 2.1")]
     public static TEnum Parse<TEnum>(this string value) where TEnum : struct, Enum =>
-#if NETSTANDARD2_1_OR_GREATER
-        Enum.Parse<TEnum>(value);
-#else
         (TEnum)Enum.Parse(typeof(TEnum), value);
 #endif
 
+#if !NETSTANDARD2_1_OR_GREATER
     /// <inheritdoc cref="Enum.Parse{TEnum}(string,bool)"/>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage(
+        "Usage", "CA2263:Prefer generic overload when type is known",
+        Justification = "Generic overload not available prior to .NET Standard 2.1")]
     public static TEnum Parse<TEnum>(this string value, bool ignoreCase)
             where TEnum : struct, Enum =>
-#if (NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_0_GREATER)
-        Enum.Parse<TEnum>(value, ignoreCase);
-#else
         (TEnum)Enum.Parse(typeof(TEnum), value, ignoreCase);
 #endif
 
