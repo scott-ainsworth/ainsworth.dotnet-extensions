@@ -21,14 +21,10 @@
     <None Include="../LICENSE" Pack="true" PackagePath="/" />
   </ItemGroup>
 
-  <Target Name="GitVersionUpdate" BeforeTargets="DispatchToInnerBuilds">
-    <Exec Command="echo IsCrossTargetingBuild = '$(IsCrossTargetingBuild)'" EchoOff="true" />
-    <Exec Command="../util/gitversion.sh update $(TargetFramework) $(Configuration)" />
-  </Target>
-
-  <Target Name="GitVersionClean" AfterTargets="Clean" Condition="'$(IsCrossTargetingBuild)' == 'true'">
-    <Exec Command="echo IsCrossTargetingBuild = '$(IsCrossTargetingBuild)'" EchoOff="true" />
-    <Exec Command="../util/gitversion.sh clean" />
-  </Target>
+  <ItemGroup>
+    <PackageReference Include="GitVersion.MsBuild">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
 
 </Project>
