@@ -25,8 +25,8 @@ public class ParseExtensionsTests {
         [  "2147483647" ]                               // (2^31-1)
     ];
 
-    [DataTestMethod]
-    [DynamicData(nameof(Int32_Valid_Strings), DynamicDataSourceType.Property)]
+    [TestMethod]
+    [DynamicData(nameof(Int32_Valid_Strings))]
     public void ParseInt32_string__returns_same_value_as_Int32Parse(string s) {
         var expected = Int32.Parse(s);
         Assert.AreEqual(expected, s.ParseInt32());
@@ -41,8 +41,8 @@ public class ParseExtensionsTests {
     * string.TryParseInt32() Tests
     */
 
-    [DataTestMethod]
-    [DynamicData(nameof(Int32_Valid_Strings), DynamicDataSourceType.Property)]
+    [TestMethod]
+    [DynamicData(nameof(Int32_Valid_Strings))]
     public void TryParseInt32_string__returns_same_value_as_Int32TryParse(string s) {
         var expected = Int32.Parse(s);
         Assert.IsTrue(s.TryParseInt32(out var result));
@@ -75,8 +75,8 @@ public class ParseExtensionsTests {
         [  "9223372036854775807" ]                                          // (2^63-1)
     ];
 
-    [DataTestMethod]
-    [DynamicData(nameof(Int64_Valid_Strings), DynamicDataSourceType.Property)]
+    [TestMethod]
+    [DynamicData(nameof(Int64_Valid_Strings))]
     public void ParseInt64_string__returns_same_value_as_Int64Parse(string s) {
         var expected = Int64.Parse(s);
         Assert.AreEqual(expected, s.ParseInt64());
@@ -90,8 +90,8 @@ public class ParseExtensionsTests {
     * string.TryParseInt64() Tests
     */
 
-    [DataTestMethod]
-    [DynamicData(nameof(Int64_Valid_Strings), DynamicDataSourceType.Property)]
+    [TestMethod]
+    [DynamicData(nameof(Int64_Valid_Strings))]
     public void TryParseInt64_string__returns_same_value_as_Int64TryParse(string s) {
         var expected = Int64.Parse(s);
         Assert.IsTrue(s.TryParseInt64(out var result));

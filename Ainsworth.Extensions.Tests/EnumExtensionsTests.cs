@@ -38,14 +38,14 @@ public class EnumExtensionTests {
     #endregion
     #region value.Format<TEnum>()
 
-    [DataTestMethod]
-    [DynamicData(nameof(DefinedValuesTestData), DynamicDataSourceType.Property)]
+    [TestMethod]
+    [DynamicData(nameof(DefinedValuesTestData))]
     public void EnumFormat_formats_correctely_for_defined_values(
             TestEnum value, string _, string format, string formatted) =>
         Assert.AreEqual(formatted, value.Format(format));
 
-    [DataTestMethod]
-    [DynamicData(nameof(UndefinedValuesTestData), DynamicDataSourceType.Property)]
+    [TestMethod]
+    [DynamicData(nameof(UndefinedValuesTestData))]
     public void EnumFormat_formats_correctely_for_undefined_values(
             TestEnum value, string _, string format, string formatted) =>
         Assert.AreEqual(formatted, value.Format(format));
@@ -53,14 +53,14 @@ public class EnumExtensionTests {
     #endregion
     #region value.GetName<TEnum>()
 
-    [DataTestMethod]
-    [DynamicData(nameof(DefinedValuesTestData), DynamicDataSourceType.Property)]
+    [TestMethod]
+    [DynamicData(nameof(DefinedValuesTestData))]
     public void EnumGetName_returns_correct_name_for_defined_values(
             TestEnum value, string name, string _0, string _1) =>
         Assert.AreEqual(name, value.GetName());
 
-    [DataTestMethod]
-    [DynamicData(nameof(UndefinedValuesTestData), DynamicDataSourceType.Property)]
+    [TestMethod]
+    [DynamicData(nameof(UndefinedValuesTestData))]
     public void EnumGetName_returns_null_for_undefined_value(
             TestEnum value, string _0, string _1, string _2) =>
         Assert.IsNull(value.GetName());
@@ -68,43 +68,43 @@ public class EnumExtensionTests {
     #endregion
     #region value.Parse<TEnum>()
 
-    [DataTestMethod]
-    [DynamicData(nameof(DefinedValuesTestData), DynamicDataSourceType.Property)]
+    [TestMethod]
+    [DynamicData(nameof(DefinedValuesTestData))]
     public void EnumParse_Value_returns_value_for_defined_names(
         TestEnum value, string name, string _0, string _1) =>
         Assert.AreEqual(value, name.Parse<TestEnum>());
 
-    [DataTestMethod]
-    [DynamicData(nameof(UndefinedNamesTestData), DynamicDataSourceType.Property)]
-    [DynamicData(nameof(DefinedNamesIncorrectCaseTestData), DynamicDataSourceType.Property)]
+    [TestMethod]
+    [DynamicData(nameof(UndefinedNamesTestData))]
+    [DynamicData(nameof(DefinedNamesIncorrectCaseTestData))]
     public void EnumParse_Value_throws_for_undefined_and_incorrectcase_name(
             TestEnum _, string name) =>
-        Assert.ThrowsException<ArgumentException>(() => name.Parse<TestEnum>());
+        Assert.Throws<ArgumentException>(() => name.Parse<TestEnum>());
 
     #endregion
     #region value.Parse<TEnum>(ignoreCase)
 
-    [DataTestMethod]
-    [DynamicData(nameof(DefinedNamesIncorrectCaseTestData), DynamicDataSourceType.Property)]
+    [TestMethod]
+    [DynamicData(nameof(DefinedNamesIncorrectCaseTestData))]
     public void EnumParse_ValueIgnoreCaseTrue_returns_value_for_defined_names(
             TestEnum value, string name) =>
         Assert.AreEqual(value, name.Parse<TestEnum>(true));
 
-    [DataTestMethod]
-    [DynamicData(nameof(DefinedNamesIncorrectCaseTestData), DynamicDataSourceType.Property)]
-    [DynamicData(nameof(UndefinedNamesTestData), DynamicDataSourceType.Property)]
+    [TestMethod]
+    [DynamicData(nameof(DefinedNamesIncorrectCaseTestData))]
+    [DynamicData(nameof(UndefinedNamesTestData))]
     public void EnumParse_ValueIgnoreCaseFalse_throws_for_undefined_value(
             TestEnum _, string name) =>
-        Assert.ThrowsException<ArgumentException>(() => name.Parse<TestEnum>(false));
+        Assert.Throws<ArgumentException>(() => name.Parse<TestEnum>(false));
 
-    [DataTestMethod]
-    [DynamicData(nameof(UndefinedNamesTestData), DynamicDataSourceType.Property)]
+    [TestMethod]
+    [DynamicData(nameof(UndefinedNamesTestData))]
     public void EnumParse_ValueIgnoreCaseTrue(TestEnum _, string name) =>
-        Assert.ThrowsException<ArgumentException>(() => name.Parse<TestEnum>(true));
+        Assert.Throws<ArgumentException>(() => name.Parse<TestEnum>(true));
 
     [TestMethod]
     public void EnumParse_throws_on_null() =>
-        Assert.ThrowsException<ArgumentNullException>(() => ((string)null!).Parse<TestEnum>());
+        Assert.Throws<ArgumentNullException>(() => ((string)null!).Parse<TestEnum>());
 
     #endregion
 }
