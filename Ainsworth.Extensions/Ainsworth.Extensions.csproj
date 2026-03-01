@@ -9,10 +9,15 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <!-- <TargetFrameworks>net8.0;netstandard2.0;netstandard2.1</TargetFrameworks> -->
-    <TargetFrameworks>netstandard2.1;netstandard2.0</TargetFrameworks>
-    <PackRelease>true</PackRelease>
+    <TargetFrameworks>netstandard2.0;net8.0;net10.0</TargetFrameworks>
+    <LanguageVersion>latest</LanguageVersion>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
+    <RunAnalyzersDuringLiveAnalysis>true</RunAnalyzersDuringLiveAnalysis>
     <AnalysisMode>All</AnalysisMode>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <PackRelease>true</PackRelease>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
   </PropertyGroup>
 
