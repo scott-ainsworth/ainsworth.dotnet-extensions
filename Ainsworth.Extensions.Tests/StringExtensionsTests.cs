@@ -132,6 +132,8 @@ public class StringExtensionsTests {
 
     [TestMethod]
     [DynamicData(nameof(SubstringsIgnorecaseTestData))]
+    [SuppressMessage("Globalization", "CA1304:Specify CultureInfo",
+        Justification = "Unit test for non-internationalized version")]
     public void StringCompareSubstringsIgnorecaseReturnsSameResult(
             string? strA, int indexA, string? strB, int indexB, int length, bool ignoreCase) =>
         Assert.AreEqual(
@@ -198,6 +200,8 @@ public class StringExtensionsTests {
 
     [TestMethod]
     [DynamicData(nameof(StringsIgnoreCaseTestData))]
+    [SuppressMessage("Globalization", "CA1304:Specify CultureInfo",
+        Justification = "Unit test for non-internationalized version")]
     public void StringCompareStringsIgnorecaseReturnsSameResult(
             string? strA, string? strB, bool ignoreCase) =>
         Assert.AreEqual(
