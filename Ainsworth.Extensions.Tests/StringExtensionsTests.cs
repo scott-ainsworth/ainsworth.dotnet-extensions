@@ -140,6 +140,8 @@ public class StringExtensionsTests {
         Justification = "Unit test for non-internationalized version")]
     [SuppressMessage("Globalization", "CA1309:Use ordinal StringComparison",
         Justification = "Unit test for non-internationalized version")]
+    [SuppressMessage("Globalization", "CA1310:Specify StringComparison for correctness",
+        Justification = "Unit test for non-internationalized version")]
     public void StringCompareSubstringsIgnorecaseReturnsSameResult(
             string? strA, int indexA, string? strB, int indexB, int length, bool ignoreCase) =>
         Assert.AreEqual(
@@ -157,6 +159,8 @@ public class StringExtensionsTests {
     [TestMethod]
     [DynamicData(nameof(SubstringsTestData))]
     [SuppressMessage("Globalization", "CA1309:Use ordinal StringComparison",
+        Justification = "Unit test for non-internationalized version")]
+    [SuppressMessage("Globalization", "CA1310:Specify StringComparison for correctness",
         Justification = "Unit test for non-internationalized version")]
     public void StringCompareSubstringsReturnsSameResult(
             string? strA, int indexA, string? strB, int indexB, int length) =>
@@ -190,6 +194,8 @@ public class StringExtensionsTests {
     [DynamicData(nameof(StringsTestData))]
     [SuppressMessage("Globalization", "CA1309:Use ordinal StringComparison",
         Justification = "Unit test for non-internationalized version")]
+    [SuppressMessage("Globalization", "CA1310:Specify StringComparison for correctness",
+        Justification = "Unit test for non-internationalized version")]
     public void StringCompareStringsReturnsSameResult(string? strA, string? strB) =>
         Assert.AreEqual(string.Compare(strA, strB), strA.Compare(strB));
     private static IEnumerable<object?[]> StringsTestData() {
@@ -215,6 +221,8 @@ public class StringExtensionsTests {
     [SuppressMessage("Globalization", "CA1304:Specify CultureInfo",
         Justification = "Unit test for non-internationalized version")]
     [SuppressMessage("Globalization", "CA1309:Use ordinal StringComparison",
+        Justification = "Unit test for non-internationalized version")]
+    [SuppressMessage("Globalization", "CA1310:Specify StringComparison for correctness",
         Justification = "Unit test for non-internationalized version")]
     public void StringCompareStringsIgnorecaseReturnsSameResult(
             string? strA, string? strB, bool ignoreCase) =>
