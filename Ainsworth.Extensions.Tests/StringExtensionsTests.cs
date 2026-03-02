@@ -78,6 +78,8 @@ public class StringExtensionsTests {
 
     [TestMethod]
     [DynamicData(nameof(SubstringsCultureOptionsTestData))]
+    [SuppressMessage("Globalization", "CA1309:Use ordinal StringComparison",
+        Justification = "Unit test for non-internationalized version")]
     public void StringCompareSubstringsCultureOptionsReturnsSameResult(
             string? strA, int indexA, string? strB, int indexB, int length,
             CultureInfo culture, CompareOptions options) =>
@@ -96,6 +98,8 @@ public class StringExtensionsTests {
 
     [TestMethod]
     [DynamicData(nameof(SubstringsIgnorecaseCultureTestData))]
+    [SuppressMessage("Globalization", "CA1309:Use ordinal StringComparison",
+        Justification = "Unit test for non-internationalized version")]
     public void StringCompareSubstringsIgnorecaseCultureReturnsSameResult(
             string? strA, int indexA, string? strB, int indexB, int length,
             bool ignoreCase, CultureInfo culture) =>
@@ -134,6 +138,8 @@ public class StringExtensionsTests {
     [DynamicData(nameof(SubstringsIgnorecaseTestData))]
     [SuppressMessage("Globalization", "CA1304:Specify CultureInfo",
         Justification = "Unit test for non-internationalized version")]
+    [SuppressMessage("Globalization", "CA1309:Use ordinal StringComparison",
+        Justification = "Unit test for non-internationalized version")]
     public void StringCompareSubstringsIgnorecaseReturnsSameResult(
             string? strA, int indexA, string? strB, int indexB, int length, bool ignoreCase) =>
         Assert.AreEqual(
@@ -150,6 +156,8 @@ public class StringExtensionsTests {
 
     [TestMethod]
     [DynamicData(nameof(SubstringsTestData))]
+    [SuppressMessage("Globalization", "CA1309:Use ordinal StringComparison",
+        Justification = "Unit test for non-internationalized version")]
     public void StringCompareSubstringsReturnsSameResult(
             string? strA, int indexA, string? strB, int indexB, int length) =>
         Assert.AreEqual(
@@ -163,6 +171,8 @@ public class StringExtensionsTests {
 
     [TestMethod]
     [DynamicData(nameof(StringsIgnoreCaseCultureTestData))]
+    [SuppressMessage("Globalization", "CA1309:Use ordinal StringComparison",
+        Justification = "Unit test for non-internationalized version")]
     public void StringCompareStringsIgnorecaseCultureReturnsSameResult(
             string? strA, string? strB, bool ignoreCase, CultureInfo culture) =>
         Assert.AreEqual(
@@ -178,6 +188,8 @@ public class StringExtensionsTests {
 
     [TestMethod]
     [DynamicData(nameof(StringsTestData))]
+    [SuppressMessage("Globalization", "CA1309:Use ordinal StringComparison",
+        Justification = "Unit test for non-internationalized version")]
     public void StringCompareStringsReturnsSameResult(string? strA, string? strB) =>
         Assert.AreEqual(string.Compare(strA, strB), strA.Compare(strB));
     private static IEnumerable<object?[]> StringsTestData() {
@@ -202,6 +214,8 @@ public class StringExtensionsTests {
     [DynamicData(nameof(StringsIgnoreCaseTestData))]
     [SuppressMessage("Globalization", "CA1304:Specify CultureInfo",
         Justification = "Unit test for non-internationalized version")]
+    [SuppressMessage("Globalization", "CA1309:Use ordinal StringComparison",
+        Justification = "Unit test for non-internationalized version")]
     public void StringCompareStringsIgnorecaseReturnsSameResult(
             string? strA, string? strB, bool ignoreCase) =>
         Assert.AreEqual(
@@ -216,6 +230,8 @@ public class StringExtensionsTests {
 
     [TestMethod]
     [DynamicData(nameof(StringsCultureInfoCompareOptionsTestData))]
+    [SuppressMessage("Globalization", "CA1309:Use ordinal StringComparison",
+        Justification = "Unit test for non-internationalized version")]
     public void StringCompareStringsCultureOptionsReturnsSameResult(
             string? strA, string? strB, CultureInfo culture, CompareOptions options) =>
         Assert.AreEqual(
