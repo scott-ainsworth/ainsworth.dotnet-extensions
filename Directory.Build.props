@@ -12,7 +12,15 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Authors>Scott G. Ainsworth</Authors>
-    <Copyright>©️2023 Scott G. Ainsworth</Copyright>
+    <Copyright>©️2023–2026 Scott G. Ainsworth</Copyright>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>latest</AnalysisLevel>
+    <AnalysisMode>recommended</AnalysisMode>
+    <EnableCodeAnalysisOnBuild>true</EnableCodeAnalysisOnBuild>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
   </PropertyGroup>
 
 </Project>

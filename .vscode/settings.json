@@ -13,5 +13,9 @@
     },
     "dotnet.unitTests.runSettingsPath": ".runsettings",
     "testing.followRunningTest": false,
-    "testing.showAllMessages": true
+    "testing.showAllMessages": true,
+    
+    "dotnet.backgroundAnalysis.analyzerDiagnosticsScope": "fullSolution",
+    "dotnet.backgroundAnalysis.compilerDiagnosticsScope": "fullSolution"
+
 }
