@@ -358,6 +358,8 @@ public class StringExtensionsTests {
 
     [TestMethod]
     [DynamicData(nameof(FormatTestData))]
+    [SuppressMessage("Globalization", "CA1305:Specify IFormatProvider",
+        Justification = "Unit test for non-internationalized version")]
     public void StringFormatObjectsReturnsSameValue(string format, params object?[] args) {
         switch (args.Length) {
             case 1:

@@ -27,14 +27,14 @@ public class ParseExtensionsTests {
 
     [TestMethod]
     [DynamicData(nameof(Int32ValidStrings))]
+    [SuppressMessage("Globalization", "CA1305:Specify IFormatProvider",
+        Justification = "Unit test for non-internationalized version")]
     public void StringParseInt32ReturnsSameValueAsInt32Parse(string s) {
         var expected = Int32.Parse(s);
         Assert.AreEqual(expected, s.ParseInt32());
-        Assert.AreEqual(expected,
-                        s.ParseInt32(NumberStyles.Integer, provider: null));
+        Assert.AreEqual(expected, s.ParseInt32(NumberStyles.Integer, provider: null));
         Assert.AreEqual(expected, s.ParseInt32(provider: null));
-        Assert.AreEqual(expected,
-                        s.ParseInt32(NumberStyles.Integer));
+        Assert.AreEqual(expected, s.ParseInt32(NumberStyles.Integer));
     }
 
     /**
@@ -43,6 +43,8 @@ public class ParseExtensionsTests {
 
     [TestMethod]
     [DynamicData(nameof(Int32ValidStrings))]
+    [SuppressMessage("Globalization", "CA1305:Specify IFormatProvider",
+        Justification = "Unit test for non-internationalized version")]
     public void StringTryParseInt32ReturnsSameValueAsInt32TryParse(string s) {
         var expected = Int32.Parse(s);
         Assert.IsTrue(s.TryParseInt32(out var result));
@@ -77,6 +79,8 @@ public class ParseExtensionsTests {
 
     [TestMethod]
     [DynamicData(nameof(Int64ValidStrings))]
+    [SuppressMessage("Globalization", "CA1305:Specify IFormatProvider",
+        Justification = "Unit test for non-internationalized version")]
     public void StringParseInt64ReturnsSameValueAsInt64Parse(string s) {
         var expected = Int64.Parse(s);
         Assert.AreEqual(expected, s.ParseInt64());
@@ -92,6 +96,8 @@ public class ParseExtensionsTests {
 
     [TestMethod]
     [DynamicData(nameof(Int64ValidStrings))]
+    [SuppressMessage("Globalization", "CA1305:Specify IFormatProvider",
+        Justification = "Unit test for non-internationalized version")]
     public void StringTryParseInt64ReturnsSameValueAsInt64TryParse(string s) {
         var expected = Int64.Parse(s);
         Assert.IsTrue(s.TryParseInt64(out var result));
