@@ -39,47 +39,47 @@ public class CastExtensionsTests
 
     [TestMethod]
     [DynamicData(nameof(ByteTestValues))]
-    public void ToByte_byte__returns_same_value_as_cast_syntax(byte value) =>
+    public void ByteToByteReturnsSameValueAsCastSyntax(byte value) =>
         Assert.AreEqual((byte)value, value.ToByte());
 
     [TestMethod]
     [DynamicData(nameof(FloatTestValues))]
-    public void ToByte_float__returns_same_value_as_cast_syntax(float value) =>
+    public void FloatToByteReturnsSameValueAsCastSyntax(float value) =>
         Assert.AreEqual((byte)value, value.ToByte());
 
     [TestMethod]
     [DynamicData(nameof(IntTestValues))]
-    public void ToByte_int__returns_same_value_as_cast_syntax(int value) =>
+    public void IntToByteReturnsSameValueAsCastSyntax(int value) =>
         Assert.AreEqual((byte)value, value.ToByte());
 
     [TestMethod]
     [DynamicData(nameof(SByteTestValues))]
-    public void ToByte_sbyte__returns_same_value_as_cast_syntax(sbyte value) =>
+    public void SByteToByteReturnsSameValueAsCastSyntax(sbyte value) =>
         Assert.AreEqual((byte)value, value.ToByte());
 
     [TestMethod]
     [DynamicData(nameof(ShortTestValues))]
-    public void ToByte_short__returns_same_value_as_cast_syntax(short value) =>
+    public void ShortToByteReturnsSameValueAsCastSyntax(short value) =>
         Assert.AreEqual((byte)value, value.ToByte());
 
     [TestMethod]
     [DynamicData(nameof(UShortTestValues))]
-    public void ToByte_ushort__returns_same_value_as_cast_syntax(ushort value) =>
+    public void UShortToByteReturnsSameValueAsCastSyntax(ushort value) =>
         Assert.AreEqual((byte)value, value.ToByte());
 
     [TestMethod]
     [DynamicData(nameof(UIntTestValues))]
-    public void ToByte_uint__returns_same_value_as_cast_syntax(uint value) =>
+    public void UIntToByteReturnsSameValueAsCastSyntax(uint value) =>
         Assert.AreEqual((byte)value, value.ToByte());
 
     [TestMethod]
     [DynamicData(nameof(LongTestValues))]
-    public void ToByte_long__returns_same_value_as_cast_syntax(long value) =>
+    public void LongToByteReturnsSameValueAsCastSyntax(long value) =>
         Assert.AreEqual((byte)value, value.ToByte());
 
     [TestMethod]
     [DynamicData(nameof(ULongTestValues))]
-    public void ToByte_ulong__returns_same_value_as_cast_syntax(ulong value) =>
+    public void ULongToByteReturnsSameValueAsCastSyntax(ulong value) =>
         Assert.AreEqual((byte)value, value.ToByte());
 
     #endregion
@@ -87,42 +87,42 @@ public class CastExtensionsTests
 
     [TestMethod]
     [DynamicData(nameof(SByteTestValues))]
-    public void ToInt_sbyte__returns_same_value_as_cast_syntax(sbyte value) =>
+    public void SByteToIntReturnsSameValueAsCastSyntax(sbyte value) =>
         Assert.AreEqual((int)value, value.ToInt());
 
     [TestMethod]
     [DynamicData(nameof(ByteTestValues))]
-    public void ToInt_byte__returns_same_value_as_cast_syntax(byte value) =>
+    public void ByteToIntReturnsSameValueAsCastSyntax(byte value) =>
         Assert.AreEqual((int)value, value.ToInt());
 
     [TestMethod]
     [DynamicData(nameof(ShortTestValues))]
-    public void ToInt_short__returns_same_value_as_cast_syntax(short value) =>
+    public void ShortToIntReturnsSameValueAsCastSyntax(short value) =>
         Assert.AreEqual((int)value, value.ToInt());
 
     [TestMethod]
     [DynamicData(nameof(UShortTestValues))]
-    public void ToInt_ushort__returns_same_value_as_cast_syntax(ushort value) =>
+    public void UShortToIntReturnsSameValueAsCastSyntax(ushort value) =>
         Assert.AreEqual((int)value, value.ToInt());
 
     [TestMethod]
     [DynamicData(nameof(IntTestValues))]
-    public void ToInt_int__returns_same_value_as_cast_syntax(int value) =>
+    public void IntToIntReturnsSameValueAsCastSyntax(int value) =>
         Assert.AreEqual((int)value, value.ToInt());
 
     [TestMethod]
     [DynamicData(nameof(UIntTestValues))]
-    public void ToInt_uint__returns_same_value_as_cast_syntax(uint value) =>
+    public void UIntToIntReturnsSameValueAsCastSyntax(uint value) =>
         Assert.AreEqual((int)value, value.ToInt());
 
     [TestMethod]
     [DynamicData(nameof(LongTestValues))]
-    public void ToInt_long__returns_same_value_as_cast_syntax(long value) =>
+    public void LongToIntReturnsSameValueAsCastSyntax(long value) =>
         Assert.AreEqual((int)value, value.ToInt());
 
     [TestMethod]
     [DynamicData(nameof(ULongTestValues))]
-    public void ToInt_ulong__returns_same_value_as_cast_syntax(ulong value) =>
+    public void ULongToIntReturnsSameValueAsCastSyntax(ulong value) =>
         Assert.AreEqual((int)value, value.ToInt());
 
     #endregion
@@ -130,42 +130,42 @@ public class CastExtensionsTests
 
     [TestMethod]
     [DynamicData(nameof(SByteTestValues))]
-    public void ToLong_sbyte__returns_same_value_as_cast_syntax(sbyte value) =>
+    public void SByteToLongReturnsSameValueAsCastSyntax(sbyte value) =>
         Assert.AreEqual((long)value, value.ToLong());
 
     [TestMethod]
     [DynamicData(nameof(ByteTestValues))]
-    public void ToLong_byte__returns_same_value_as_cast_syntax(byte value) =>
+    public void ByteToLongReturnsSameValueAsCastSyntax(byte value) =>
         Assert.AreEqual((long)value, value.ToLong());
 
     [TestMethod]
     [DynamicData(nameof(ShortTestValues))]
-    public void ToLong_short__returns_same_value_as_cast_syntax(short value) =>
+    public void ShortToLongReturnsSameValueAsCastSyntax(short value) =>
         Assert.AreEqual((long)value, value.ToLong());
 
     [TestMethod]
     [DynamicData(nameof(UShortTestValues))]
-    public void ToLong_ushort__returns_same_value_as_cast_syntax(ushort value) =>
+    public void UShortToLongReturnsSameValueAsCastSyntax(ushort value) =>
         Assert.AreEqual((long)value, value.ToLong());
 
     [TestMethod]
     [DynamicData(nameof(IntTestValues))]
-    public void ToLong_int__returns_same_value_as_cast_syntax(int value) =>
+    public void IntToLongReturnsSameValueAsCastSyntax(int value) =>
         Assert.AreEqual((long)value, value.ToLong());
 
     [TestMethod]
     [DynamicData(nameof(UIntTestValues))]
-    public void ToLong_uint__returns_same_value_as_cast_syntax(uint value) =>
+    public void UIntToLongReturnsSameValueAsCastSyntax(uint value) =>
         Assert.AreEqual((long)value, value.ToLong());
 
     [TestMethod]
     [DynamicData(nameof(LongTestValues))]
-    public void ToLong_long__returns_same_value_as_cast_syntax(long value) =>
+    public void LongToLongReturnsSameValueAsCastSyntax(long value) =>
         Assert.AreEqual((long)value, value.ToLong());
 
     [TestMethod]
     [DynamicData(nameof(ULongTestValues))]
-    public void ToLong_ulong__returns_same_value_as_cast_syntax(ulong value) =>
+    public void ULongToLongReturnsSameValueAsCastSyntax(ulong value) =>
         Assert.AreEqual((long)value, value.ToLong());
 
     #endregion
@@ -173,42 +173,42 @@ public class CastExtensionsTests
 
     [TestMethod]
     [DynamicData(nameof(SByteTestValues))]
-    public void ToSByte_sbyte__returns_same_value_as_cast_syntax(sbyte value) =>
+    public void SByteToSByteReturnsSameValueAsCastSyntax(sbyte value) =>
         Assert.AreEqual((sbyte)value, value.ToSByte());
 
     [TestMethod]
     [DynamicData(nameof(ByteTestValues))]
-    public void ToSByte_byte__returns_same_value_as_cast_syntax(byte value) =>
+    public void ByteToSByteReturnsSameValueAsCastSyntax(byte value) =>
         Assert.AreEqual((sbyte)value, value.ToSByte());
 
     [TestMethod]
     [DynamicData(nameof(ShortTestValues))]
-    public void ToSByte_short__returns_same_value_as_cast_syntax(short value) =>
+    public void ShortToSByteReturnsSameValueAsCastSyntax(short value) =>
         Assert.AreEqual((sbyte)value, value.ToSByte());
 
     [TestMethod]
     [DynamicData(nameof(UShortTestValues))]
-    public void ToSByte_ushort__returns_same_value_as_cast_syntax(ushort value) =>
+    public void UShortToSByteReturnsSameValueAsCastSyntax(ushort value) =>
         Assert.AreEqual((sbyte)value, value.ToSByte());
 
     [TestMethod]
     [DynamicData(nameof(IntTestValues))]
-    public void ToSByte_int__returns_same_value_as_cast_syntax(int value) =>
+    public void IntToSByteReturnsSameValueAsCastSyntax(int value) =>
         Assert.AreEqual((sbyte)value, value.ToSByte());
 
     [TestMethod]
     [DynamicData(nameof(UIntTestValues))]
-    public void ToSByte_uint__returns_same_value_as_cast_syntax(uint value) =>
+    public void UIntToSByteReturnsSameValueAsCastSyntax(uint value) =>
         Assert.AreEqual((sbyte)value, value.ToSByte());
 
     [TestMethod]
     [DynamicData(nameof(LongTestValues))]
-    public void ToSByte_long__returns_same_value_as_cast_syntax(long value) =>
+    public void LongToSByteReturnsSameValueAsCastSyntax(long value) =>
         Assert.AreEqual((sbyte)value, value.ToSByte());
 
     [TestMethod]
     [DynamicData(nameof(ULongTestValues))]
-    public void ToSByte_ulong__returns_same_value_as_cast_syntax(ulong value) =>
+    public void ULongToSByteReturnsSameValueAsCastSyntax(ulong value) =>
         Assert.AreEqual((sbyte)value, value.ToSByte());
 
     #endregion
@@ -216,42 +216,42 @@ public class CastExtensionsTests
 
     [TestMethod]
     [DynamicData(nameof(SByteTestValues))]
-    public void ToShort_sbyte__returns_same_value_as_cast_syntax(sbyte value) =>
+    public void SByteToShortReturnsSameValueAsCastSyntax(sbyte value) =>
         Assert.AreEqual((short)value, value.ToShort());
 
     [TestMethod]
     [DynamicData(nameof(ByteTestValues))]
-    public void ToShort_byte__returns_same_value_as_cast_syntax(byte value) =>
+    public void ByteToShortReturnsSameValueAsCastSyntax(byte value) =>
         Assert.AreEqual((short)value, value.ToShort());
 
     [TestMethod]
     [DynamicData(nameof(ShortTestValues))]
-    public void ToShort_short__returns_same_value_as_cast_syntax(short value) =>
+    public void ShortToShortReturnsSameValueAsCastSyntax(short value) =>
         Assert.AreEqual((short)value, value.ToShort());
 
     [TestMethod]
     [DynamicData(nameof(UShortTestValues))]
-    public void ToShort_ushort__returns_same_value_as_cast_syntax(ushort value) =>
+    public void UShortToShortReturnsSameValueAsCastSyntax(ushort value) =>
         Assert.AreEqual((short)value, value.ToShort());
 
     [TestMethod]
     [DynamicData(nameof(IntTestValues))]
-    public void ToShort_int__returns_same_value_as_cast_syntax(int value) =>
+    public void IntToShortReturnsSameValueAsCastSyntax(int value) =>
         Assert.AreEqual((short)value, value.ToShort());
 
     [TestMethod]
     [DynamicData(nameof(UIntTestValues))]
-    public void ToShort_uint__returns_same_value_as_cast_syntax(uint value) =>
+    public void UIntToShortReturnsSameValueAsCastSyntax(uint value) =>
         Assert.AreEqual((short)value, value.ToShort());
 
     [TestMethod]
     [DynamicData(nameof(LongTestValues))]
-    public void ToShort_long__returns_same_value_as_cast_syntax(long value) =>
+    public void LongToShortReturnsSameValueAsCastSyntax(long value) =>
         Assert.AreEqual((short)value, value.ToShort());
 
     [TestMethod]
     [DynamicData(nameof(ULongTestValues))]
-    public void ToShort_ulong__returns_same_value_as_cast_syntax(ulong value) =>
+    public void ULongToShortReturnsSameValueAsCastSyntax(ulong value) =>
         Assert.AreEqual((short)value, value.ToShort());
 
     #endregion
@@ -259,42 +259,42 @@ public class CastExtensionsTests
 
     [TestMethod]
     [DynamicData(nameof(SByteTestValues))]
-    public void ToUInt_sbyte__returns_same_value_as_cast_syntax(sbyte value) =>
+    public void SByteToUIntReturnsSameValueAsCastSyntax(sbyte value) =>
         Assert.AreEqual((uint)value, value.ToUInt());
 
     [TestMethod]
     [DynamicData(nameof(ByteTestValues))]
-    public void ToUInt_byte__returns_same_value_as_cast_syntax(byte value) =>
+    public void ByteToUIntReturnsSameValueAsCastSyntax(byte value) =>
         Assert.AreEqual((uint)value, value.ToUInt());
 
     [TestMethod]
     [DynamicData(nameof(ShortTestValues))]
-    public void ToUInt_short__returns_same_value_as_cast_syntax(short value) =>
+    public void ShortToUIntReturnsSameValueAsCastSyntax(short value) =>
         Assert.AreEqual((uint)value, value.ToUInt());
 
     [TestMethod]
     [DynamicData(nameof(UShortTestValues))]
-    public void ToUInt_ushort__returns_same_value_as_cast_syntax(ushort value) =>
+    public void UShortToUIntReturnsSameValueAsCastSyntax(ushort value) =>
         Assert.AreEqual((uint)value, value.ToUInt());
 
     [TestMethod]
     [DynamicData(nameof(IntTestValues))]
-    public void ToUInt_int__returns_same_value_as_cast_syntax(int value) =>
+    public void IntToUIntReturnsSameValueAsCastSyntax(int value) =>
         Assert.AreEqual((uint)value, value.ToUInt());
 
     [TestMethod]
     [DynamicData(nameof(UIntTestValues))]
-    public void ToUInt_uint__returns_same_value_as_cast_syntax(uint value) =>
+    public void UIntToUIntReturnsSameValueAsCastSyntax(uint value) =>
         Assert.AreEqual((uint)value, value.ToUInt());
 
     [TestMethod]
     [DynamicData(nameof(LongTestValues))]
-    public void ToUInt_long__returns_same_value_as_cast_syntax(long value) =>
+    public void LongToUIntReturnsSameValueAsCastSyntax(long value) =>
         Assert.AreEqual((uint)value, value.ToUInt());
 
     [TestMethod]
     [DynamicData(nameof(ULongTestValues))]
-    public void ToUInt_ulong__returns_same_value_as_cast_syntax(ulong value) =>
+    public void ULongToUIntReturnsSameValueAsCastSyntax(ulong value) =>
         Assert.AreEqual((uint)value, value.ToUInt());
 
     #endregion
@@ -302,42 +302,42 @@ public class CastExtensionsTests
 
     [TestMethod]
     [DynamicData(nameof(SByteTestValues))]
-    public void ToULong_sbyte__returns_same_value_as_cast_syntax(sbyte value) =>
+    public void SByteToULongReturnsSameValueAsCastSyntax(sbyte value) =>
         Assert.AreEqual((ulong)value, value.ToULong());
 
     [TestMethod]
     [DynamicData(nameof(ByteTestValues))]
-    public void ToULong_byte__returns_same_value_as_cast_syntax(byte value) =>
+    public void ByteToULongReturnsSameValueAsCastSyntax(byte value) =>
         Assert.AreEqual((ulong)value, value.ToULong());
 
     [TestMethod]
     [DynamicData(nameof(ShortTestValues))]
-    public void ToULong_short__returns_same_value_as_cast_syntax(short value) =>
+    public void ShortToULongReturnsSameValueAsCastSyntax(short value) =>
         Assert.AreEqual((ulong)value, value.ToULong());
 
     [TestMethod]
     [DynamicData(nameof(UShortTestValues))]
-    public void ToULong_ushort__returns_same_value_as_cast_syntax(ushort value) =>
+    public void UShortToULongReturnsSameValueAsCastSyntax(ushort value) =>
         Assert.AreEqual((ulong)value, value.ToULong());
 
     [TestMethod]
     [DynamicData(nameof(IntTestValues))]
-    public void ToULong_int__returns_same_value_as_cast_syntax(int value) =>
+    public void IntToULongReturnsSameValueAsCastSyntax(int value) =>
         Assert.AreEqual((ulong)value, value.ToULong());
 
     [TestMethod]
     [DynamicData(nameof(UIntTestValues))]
-    public void ToULong_uint__returns_same_value_as_cast_syntax(uint value) =>
+    public void UIntToULongReturnsSameValueAsCastSyntax(uint value) =>
         Assert.AreEqual((ulong)value, value.ToULong());
 
     [TestMethod]
     [DynamicData(nameof(LongTestValues))]
-    public void ToULong_long__returns_same_value_as_cast_syntax(long value) =>
+    public void LongToULongReturnsSameValueAsCastSyntax(long value) =>
         Assert.AreEqual((ulong)value, value.ToULong());
 
     [TestMethod]
     [DynamicData(nameof(ULongTestValues))]
-    public void ToULong_ulong__returns_same_value_as_cast_syntax(ulong value) =>
+    public void ULongToULongReturnsSameValueAsCastSyntax(ulong value) =>
         Assert.AreEqual((ulong)value, value.ToULong());
 
     #endregion
@@ -345,42 +345,42 @@ public class CastExtensionsTests
 
     [TestMethod]
     [DynamicData(nameof(SByteTestValues))]
-    public void ToUShort_sbyte__returns_same_value_as_cast_syntax(sbyte value) =>
+    public void SByteToUShortReturnsSameValueAsCastSyntax(sbyte value) =>
         Assert.AreEqual((ushort)value, value.ToUShort());
 
     [TestMethod]
     [DynamicData(nameof(ByteTestValues))]
-    public void ToUShort_byte__returns_same_value_as_cast_syntax(byte value) =>
+    public void ByteToUShortReturnsSameValueAsCastSyntax(byte value) =>
         Assert.AreEqual((ushort)value, value.ToUShort());
 
     [TestMethod]
     [DynamicData(nameof(ShortTestValues))]
-    public void ToUShort_short__returns_same_value_as_cast_syntax(short value) =>
+    public void ShortToUShortReturnsSameValueAsCastSyntax(short value) =>
         Assert.AreEqual((ushort)value, value.ToUShort());
 
     [TestMethod]
     [DynamicData(nameof(UShortTestValues))]
-    public void ToUShort_ushort__returns_same_value_as_cast_syntax(ushort value) =>
+    public void UShortToUShortReturnsSameValueAsCastSyntax(ushort value) =>
         Assert.AreEqual((ushort)value, value.ToUShort());
 
     [TestMethod]
     [DynamicData(nameof(IntTestValues))]
-    public void ToUShort_int__returns_same_value_as_cast_syntax(int value) =>
+    public void IntToUShortReturnsSameValueAsCastSyntax(int value) =>
         Assert.AreEqual((ushort)value, value.ToUShort());
 
     [TestMethod]
     [DynamicData(nameof(UIntTestValues))]
-    public void ToUShort_uint__returns_same_value_as_cast_syntax(uint value) =>
+    public void UIntToUShortReturnsSameValueAsCastSyntax(uint value) =>
         Assert.AreEqual((ushort)value, value.ToUShort());
 
     [TestMethod]
     [DynamicData(nameof(LongTestValues))]
-    public void ToUShort_long__returns_same_value_as_cast_syntax(long value) =>
+    public void LongToUShortReturnsSameValueAsCastSyntax(long value) =>
         Assert.AreEqual((ushort)value, value.ToUShort());
 
     [TestMethod]
     [DynamicData(nameof(ULongTestValues))]
-    public void ToUShort_ulong__returns_same_value_as_cast_syntax(ulong value) =>
+    public void ULongToUShortReturnsSameValueAsCastSyntax(ulong value) =>
         Assert.AreEqual((ushort)value, value.ToUShort());
 
     #endregion
