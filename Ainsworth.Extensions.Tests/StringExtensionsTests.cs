@@ -4,10 +4,10 @@ using System.Text;
 namespace Ainsworth.Extensions.Tests;
 
 [ExcludeFromCodeCoverage]
-internal record TestStringPair(string? StrA, string? StrB);
+internal sealed record TestStringPair(string? StrA, string? StrB);
 
 [ExcludeFromCodeCoverage]
-internal record TestRange(int IndexA, int IndexB, int Length);
+internal sealed record TestRange(int IndexA, int IndexB, int Length);
 
 /// <summary>
 ///   Unit tests for <see cref="StringExtensions"/>
