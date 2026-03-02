@@ -15,7 +15,7 @@ public class ParseExtensionsTests {
     * string.ParseInt32() && string.TryParseInt32() Tests
     *******************************************************/
 
-    private static IEnumerable<object[]> Int32_Valid_Strings { get; } = [
+    private static IEnumerable<object[]> Int32ValidStrings { get; } = [
         new string[] { "-2147483648" },                 // -(2^31)
         [ "-2147483647" ],                              // -(2^31)+1
         [      "-32769" ], [ "-32768" ], [ "-32767" ],  // -(2^15)±1
@@ -26,8 +26,8 @@ public class ParseExtensionsTests {
     ];
 
     [TestMethod]
-    [DynamicData(nameof(Int32_Valid_Strings))]
-    public void ParseInt32_string__returns_same_value_as_Int32Parse(string s) {
+    [DynamicData(nameof(Int32ValidStrings))]
+    public void StringParseInt32ReturnsSameValueAsInt32Parse(string s) {
         var expected = Int32.Parse(s);
         Assert.AreEqual(expected, s.ParseInt32());
         Assert.AreEqual(expected,
@@ -42,8 +42,8 @@ public class ParseExtensionsTests {
     */
 
     [TestMethod]
-    [DynamicData(nameof(Int32_Valid_Strings))]
-    public void TryParseInt32_string__returns_same_value_as_Int32TryParse(string s) {
+    [DynamicData(nameof(Int32ValidStrings))]
+    public void StringTryParseInt32ReturnsSameValueAsInt32TryParse(string s) {
         var expected = Int32.Parse(s);
         Assert.IsTrue(s.TryParseInt32(out var result));
         Assert.AreEqual(expected, result);
@@ -63,7 +63,7 @@ public class ParseExtensionsTests {
     * string.ParseInt64() && string.TryParseInt64() Tests
     *******************************************************/
 
-    public static IEnumerable<object[]> Int64_Valid_Strings { get; }  = [
+    public static IEnumerable<object[]> Int64ValidStrings { get; }  = [
         new string[] { "-9223372036854775808" },                            // -(2^63)
         [ "-9223372036854775807" ],                                         // -(2^63)+1
         [          "-2147483649" ], [ "-2147483648" ], [ "-2147483647" ],   // -(2^31)±1
@@ -76,8 +76,8 @@ public class ParseExtensionsTests {
     ];
 
     [TestMethod]
-    [DynamicData(nameof(Int64_Valid_Strings))]
-    public void ParseInt64_string__returns_same_value_as_Int64Parse(string s) {
+    [DynamicData(nameof(Int64ValidStrings))]
+    public void StringParseInt64ReturnsSameValueAsInt64Parse(string s) {
         var expected = Int64.Parse(s);
         Assert.AreEqual(expected, s.ParseInt64());
         Assert.AreEqual(expected, s.ParseInt64(NumberStyles.Integer, provider: null));
@@ -91,8 +91,8 @@ public class ParseExtensionsTests {
     */
 
     [TestMethod]
-    [DynamicData(nameof(Int64_Valid_Strings))]
-    public void TryParseInt64_string__returns_same_value_as_Int64TryParse(string s) {
+    [DynamicData(nameof(Int64ValidStrings))]
+    public void StringTryParseInt64ReturnsSameValueAsInt64TryParse(string s) {
         var expected = Int64.Parse(s);
         Assert.IsTrue(s.TryParseInt64(out var result));
         Assert.AreEqual(expected, result);

@@ -6,6 +6,9 @@ public class EnumExtensionTests {
 
     #region Test Data
 
+    [SuppressMessage(
+        "Naming", "CA1711:Identifiers should not have incorrect suffix",
+        Justification = "'TestEnum' makes sense for these unit tests.")]
     public enum TestEnum { Zero = 0, One = 1, Two = 2 }
 
     public static IEnumerable<object[]> DefinedValuesTestData { get; } = [
@@ -40,13 +43,13 @@ public class EnumExtensionTests {
 
     [TestMethod]
     [DynamicData(nameof(DefinedValuesTestData))]
-    public void EnumFormat_formats_correctely_for_defined_values(
+    public void EnumFormatFormatsCorrectlyForDefinedValues(
             TestEnum value, string _, string format, string formatted) =>
         Assert.AreEqual(formatted, value.Format(format));
 
     [TestMethod]
     [DynamicData(nameof(UndefinedValuesTestData))]
-    public void EnumFormat_formats_correctely_for_undefined_values(
+    public void EnumFormatFormatsCorrectlyForUndefinedValues(
             TestEnum value, string _, string format, string formatted) =>
         Assert.AreEqual(formatted, value.Format(format));
 
@@ -55,13 +58,13 @@ public class EnumExtensionTests {
 
     [TestMethod]
     [DynamicData(nameof(DefinedValuesTestData))]
-    public void EnumGetName_returns_correct_name_for_defined_values(
+    public void EnumGetNameReturnsCorrectNameForDefinedValues(
             TestEnum value, string name, string _0, string _1) =>
         Assert.AreEqual(name, value.GetName());
 
     [TestMethod]
     [DynamicData(nameof(UndefinedValuesTestData))]
-    public void EnumGetName_returns_null_for_undefined_value(
+    public void EnumGetNameReturnsNullForUndefinedValue(
             TestEnum value, string _0, string _1, string _2) =>
         Assert.IsNull(value.GetName());
 
@@ -70,14 +73,14 @@ public class EnumExtensionTests {
 
     [TestMethod]
     [DynamicData(nameof(DefinedValuesTestData))]
-    public void EnumParse_Value_returns_value_for_defined_names(
+    public void ParseEnumReturnsValueForDefinedNames(
         TestEnum value, string name, string _0, string _1) =>
         Assert.AreEqual(value, name.Parse<TestEnum>());
 
     [TestMethod]
     [DynamicData(nameof(UndefinedNamesTestData))]
     [DynamicData(nameof(DefinedNamesIncorrectCaseTestData))]
-    public void EnumParse_Value_throws_for_undefined_and_incorrectcase_name(
+    public void EnumParseThrowsForUndefinedAndIncorrectcaseName(
             TestEnum _, string name) =>
         Assert.Throws<ArgumentException>(() => name.Parse<TestEnum>());
 
@@ -86,24 +89,24 @@ public class EnumExtensionTests {
 
     [TestMethod]
     [DynamicData(nameof(DefinedNamesIncorrectCaseTestData))]
-    public void EnumParse_ValueIgnoreCaseTrue_returns_value_for_defined_names(
+    public void EnumParseIgnoreCaseTrueReturnsValueForDefinedName(
             TestEnum value, string name) =>
         Assert.AreEqual(value, name.Parse<TestEnum>(true));
 
     [TestMethod]
     [DynamicData(nameof(DefinedNamesIncorrectCaseTestData))]
     [DynamicData(nameof(UndefinedNamesTestData))]
-    public void EnumParse_ValueIgnoreCaseFalse_throws_for_undefined_value(
+    public void EnumParseIgnoreCaseFalseThrowsForUndefinedName(
             TestEnum _, string name) =>
         Assert.Throws<ArgumentException>(() => name.Parse<TestEnum>(false));
 
     [TestMethod]
     [DynamicData(nameof(UndefinedNamesTestData))]
-    public void EnumParse_ValueIgnoreCaseTrue(TestEnum _, string name) =>
+    public void EnumParseIgnoreCaseTrueThrowsForUndefinedUndefinedName(TestEnum _, string name) =>
         Assert.Throws<ArgumentException>(() => name.Parse<TestEnum>(true));
 
     [TestMethod]
-    public void EnumParse_throws_on_null() =>
+    public void EnumParseThrowsOnNull() =>
         Assert.Throws<ArgumentNullException>(() => ((string)null!).Parse<TestEnum>());
 
     #endregion
