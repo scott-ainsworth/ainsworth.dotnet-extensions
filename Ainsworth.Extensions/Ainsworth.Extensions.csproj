@@ -6,11 +6,10 @@
     <AssemblyTitle>Ainsworth.Extensions</AssemblyTitle>
     <Description>Extension methods to make built-in static methods appear available as instance methods. For example, Char.IsLetter(c) can be written c.IsLetter(). This package adds no new functionality. It just enables method chaining and makes interfaces to some System classes a bit more fluent.</Description>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-  </PropertyGroup>
-
-  <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net8.0;net10.0</TargetFrameworks>
     <PackRelease>true</PackRelease>
+    <!-- Prevent .NET 8+ SDK from adding commit SHA to Informational version -->
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
   </PropertyGroup>
 
   <ItemGroup>
